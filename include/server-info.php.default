@@ -1,0 +1,15 @@
+<?php
+    namespace maintask;
+    //******** RCON SETTIONGS ********
+    $rpawd=;//password
+    $rhost=;//host
+    $rport=;//port
+    //******** MYSQL SETTIONGS ********
+    $dbhost=;
+    $dbport=3306;//DEFAULT 3306
+    $dbuser=;
+    $dbpawd=;
+    $dbname=;
+    
+    $dbhost=$dbhost.':'.$dbport;
+?>
