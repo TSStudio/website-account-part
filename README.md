@@ -4,11 +4,17 @@
 PHP 5.6+
 
 克隆本库
+
 `git-clone https://github.com/TSStudio/website-account-part.git`
+
 将
+
 `include/server-info.php.default`
+
 的文件名改成
+
 `server-info.php`
+
 编辑此文件
 ```php
 <?php    
@@ -29,3 +35,4 @@ PHP 5.6+
 `include "php7-support.php";`
 ### 和源站的区别
 没有exchange.php,里面有一些东西不能拿出来的
+### 欢迎提交BUG 请到issues页面
