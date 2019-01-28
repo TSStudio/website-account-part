@@ -31,8 +31,9 @@ PHP 5.6+
     $dbhost=$dbhost.':'.$dbport;//勿动
 ```
 ### PHP7注意
-请在每一个用了数据库的页面加上
-`include "php7-support.php";`
+~~请在每一个用了数据库的页面加上~~
+~~`include "php7-support.php";`~~
+已经完美支持PHP7
 ### 和源站的区别
 没有exchange.php,里面有一些东西不能拿出来的
 ### 欢迎提交BUG 请到issues页面

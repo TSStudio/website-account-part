@@ -29,12 +29,11 @@ function random($length) {
 $username = $_SESSION['username'];
 $oldpassword = hash("sha256", $_POST["oldpw"]);
 $newpassword = hash("sha256", $_POST["password"]);
-$con = mysql_connect($dbhost, $dbuser, $dbpawd);
-mysql_select_db($dbname, $con);
+$con = new \mysqli($dbhost,$dbuser,$dbpawd,$dbname);;
 $dbusername = null;
 $dbpassword = null;
-$result = mysql_query("select * from user where realname ='{$username}';");
-while ($row = mysql_fetch_array($result)) {
+$result = $con->query("select * from user where realname ='{$username}';");
+while ($row = mysqli_fetch_array($result)) {
     $dbusername = $row["realname"];
     $dbpassword = $row["password"];
 }
@@ -62,8 +61,8 @@ if ($password != $pass) {
 $randomstr = random(15);
 $newpassword = hash("sha256", $newpassword . $randomstr);
 $newpassword = '$SHA$' . $randomstr . '$' . $newpassword;
-mysql_query("update user set password='{$newpassword}' where realname='{$username}'") or die("存入数据库失败" . mysql_error()); //如果上述用户名密码判定不错，则update进数据库中
-mysql_close($con);
+$con->query("update user set password='{$newpassword}' where realname='{$username}'") or die("存入数据库失败" . mysqli_error()); //如果上述用户名密码判定不错，则update进数据库中
+mysqli_close($con);
 ?> 
  
  

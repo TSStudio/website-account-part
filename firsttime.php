@@ -13,15 +13,14 @@ include './include/server-info.php';
 <body>
   <?php
     $username=strtolower($_SESSION['username']);
-    $con=mysql_connect($dbhost,$dbuser,$dbpawd); 
-    mysql_select_db ( $dbname, $con );
+    $con=new \mysqli($dbhost,$dbuser,$dbpawd,$dbname);
     $dbusername=null; 
-    $result = mysql_query ( "select * from point where Username ='{$username}';" ); 
-    while ($row=mysql_fetch_array($result)) {//while循环将$result中的结果找出来 
+    $result = $con->query ( "select * from point where Username ='{$username}';" ); 
+    while ($row=mysqli_fetch_array($result)) {//while循环将$result中的结果找出来 
       $dbusername=$row["Username"]; 
     }
     if (is_null ( $dbusername )) {
-        mysql_query("insert into point (Username,Point) values('{$username}',0)") or die($username.$dbusername."存入数据库失败".mysql_error()) ;
+        $con->query("insert into point (Username,Point) values('{$username}',0)") or die($username.$dbusername."存入数据库失败".mysql_error()) ;
     }
     echo '<script>window.location.href="ebw.php";</script>';
 ?>
