@@ -1,0 +1,20 @@
+﻿.BOX{
+    width:85%;
+    margin:10px auto 10px auto;
+    background-color:#CCCCCC;
+    padding-top:5px;
+    padding-bottom:5px;
+}
+.LINEBOX{
+    width:200px;
+    height:42px;
+    background-color:888888;
+}
+.PERCENT{
+    height:42px;
+    background-color:CC6622;
+    margin:0px auto 0px 0px;
+}
+*{
+    font-family:"Microsoft Yahei UI","Microsoft YaHei UI","Microsoft Yahei","Microsoft YaHei","榛戜綋","SimHei",sans-serif;
+}
