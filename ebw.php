@@ -29,7 +29,7 @@ include './include/server-info.php';
                     printf("Connect failed: %s\n", $db->connect_error);
                     exit();
                 }
-                $sqll='SELECT * FROM point where Username=\''.strtolower($_SESSION['username'].'\'');
+                $sqll='SELECT * FROM point where Username=\''.strtolower($_SESSION['username']).'\'';
                 $rows = $db->query($sqll);
                 if (mysqli_num_rows($rows) < 1){
                     header('Refresh:0;url=firsttime.php');
