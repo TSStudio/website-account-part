@@ -33,7 +33,8 @@
         <table><tr><td><a href="logout.php?URL=index.php" style="font-style:normal;text-decoration:none;width:100%;" class="button button-caution"><i class="iconfont icon-login"></i>登出</a></td></tr>
         <tr><td><a href="http://pan.tmysam.top/?session_id=<?php echo base64_encode(session_id());?>" style="font-style:normal;text-decoration:none;width:100%;" class="button button-primary"><i class="iconfont icon-disk"></i>Photo Lab</a></td></tr>
         <tr><td><a href="reset.php" style="font-style:normal;text-decoration:none;width:100%;" class="button button-action"><i class="iconfont icon-refresh"></i>Reset Password</a></td></tr>
-        <tr><td><a href="ebw.php" style="font-style:normal;text-decoration:none;width:100%;" class="button button-action">Fortress II : Siege计分榜及积分兑换</a></td></tr>
+        <tr><td><a href="ebw.php" style="font-style:normal;text-decoration:none;width:100%;" class="button button-royal">Fortress II : Siege计分榜及积分兑换</a></td></tr>
+        <tr><td><a href="quest.php" style="font-style:normal;text-decoration:none;width:100%;" class="button button-highlight">授权申请</a></td></tr>
         </table>
         </div>
         <script>

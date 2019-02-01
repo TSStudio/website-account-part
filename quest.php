@@ -4,7 +4,12 @@ session_start();
 header("Content-type: text/html; charset=utf-8");
 include './include/classes.php';
 include './include/server-info.php';
-?>
+error_reporting(E_ALL || ~E_NOTICE);
+if ($_SESSION['username']==""){
+    echo "You are not logging in,jumping to the log-in page.";
+    header('Refresh:0;url=loginform.php?URL=quest.php&code=105');
+    die();
+}?>
 <html>
     <head>
         <link href="css/style.css" rel="stylesheet">
@@ -38,7 +43,7 @@ include './include/server-info.php';
                 }else if($row['status']==1){
                     $status="审核中";
                 }else if($row['status']==2){
-                    $status="已通过(<a href=\"cert.php?serial=".$row['result']."\">查看证书</a>";
+                    $status="已通过(<a href=\"cert.php?serial=".$row['result']."\">查看证书</a>)";
                 }
                 echo '<td>'.$status.'</td></tr>';
             }
