@@ -18,6 +18,15 @@ if (isset($_REQUEST['authcode'])) {
     }
 }
 $username = $_POST["username"];
+if(strpos($username," or ")||strpos($username,"--")||strpos($username,"/*")||strpos($username,"*/")){
+    ?> 
+  <script type="text/javascript"> 
+    alert("用户名含有非法字符"); 
+    window.location.href="loginform.php?code=103&URL=<?php echo $_GET["URL"];?>"; 
+  </script> 
+  <?php
+    die();
+    }
 $password = hash("sha256", $_POST["password"]);
 function random($length) {
     srand(date("s"));
@@ -60,6 +69,7 @@ mysql_query("insert into user (username,regip,ip,world,x,y,z,regdate,lastlogin,n
 mysql_close($con);
 $_SESSION["username"] = $username;
 $_SESSION["id"] = $time;
+$_SESSION["language"] = "zh_CN";
 ?> 
   <script type="text/javascript"> 
     alert("注册成功"); 

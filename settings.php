@@ -1,7 +1,14 @@
-﻿<?php session_start();
+<?php session_start();
 include './include/server-info.php';
 $lang=$_SESSION['language'];
 include './include/'.$lang.'.php';
+if ($lang=="zh_CN"){
+    $zhcn='selected';
+    $enus='';
+}else if ($lang=="en_US"){
+    $enus='selected';
+    $zhcn='';
+}
  ?>
 <html>
     <head>
@@ -30,16 +37,21 @@ include './include/'.$lang.'.php';
                 error_reporting(E_ALL || ~E_NOTICE);
                 if ($_SESSION['username']==""){
                     echo "You are not logging in,jumping to the log-in page.";
-                    header('Refresh:0;url=loginform.php?URL=index.php&code=105');
+                    header('Refresh:0;url=loginform.php?URL=settings.php&code=105');
                     die();
                 }?>
-                <i class="iconfont icon-username"></i><?php echo $_SESSION['username']; ?>
-        <table><tr><td><a href="logout.php?URL=index.php" style="font-style:normal;text-decoration:none;width:100%;" class="button button-caution"><i class="iconfont icon-login"></i><?=$ladc?></a></td></tr>
-        <tr><td><a href="http://pan.tmysam.top/?session_id=<?php echo base64_encode(session_id());?>" style="font-style:normal;text-decoration:none;width:100%;" class="button button-primary"><i class="iconfont icon-disk"></i><?=$ls01?></a></td></tr>
-        <tr><td><a href="reset.php" style="font-style:normal;text-decoration:none;width:100%;" class="button button-action"><i class="iconfont icon-refresh"></i><?=$ls02?></a></td></tr>
-        <tr><td><a href="ebw.php" style="font-style:normal;text-decoration:none;width:100%;" class="button button-royal"><?=$ls03?></a></td></tr>
-        <tr><td><a href="quest.php" style="font-style:normal;text-decoration:none;width:100%;" class="button button-highlight"><?=$ls04?></a></td></tr>
-        <tr><td><a href="settings.php" style="font-style:normal;text-decoration:none;width:100%;" class="button button-tiny"><?=$ls05?></a></td></tr>
+                <h2><?=$setn?></h2>
+                <i class="iconfont icon-username"></i><?php echo $_SESSION['username']; ?><br>
+                <a href="index.php" class="button button-primary"><i class="iconfont icon-i-back"></i><?=$back?></a><br>
+                <h3>语言/Language</h3>
+                <form action="langset.php" method="post">
+                <select name="lang" style="color:#111111;">
+                <option value="zh_CN" style="color:#111111;" <?=$zhcn?>>简体中文</option>
+                <option value="en_US" style="color:#111111;" <?=$enus?>>English(US)</option>
+                </select>
+                <br><br>
+                <input type="submit" value="更改/Confirm">
+                </form>
         </table>
         </div>
         <script>

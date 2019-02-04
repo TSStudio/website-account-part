@@ -4,6 +4,8 @@ session_start();
 header("Content-type: text/html; charset=utf-8");
 include './include/classes.php';
 include './include/server-info.php';
+$lang=$_SESSION['language'];
+include './include/'.$lang.'.php';
 ?>
 <html>
     <head>
@@ -14,13 +16,13 @@ include './include/server-info.php';
         <title>Fortress II:Siege</title>
         <script>
             function buy(cass,cost){
-                frsc=confirm('请确认该用户名和游戏用户名完全一致（包括大小写）');
-                if(frsc&&confirm("你确定要购买此职业吗，这将花费你"+cost+"积分")){
+                frsc=confirm('<?=$ebbm?>');
+                if(frsc&&confirm("<?=$ebb2?>"+cost+"<?=$ebpt?>")){
                     window.location.href="exchange.php?class="+cass;
                 }
             }
             function showhelp(){
-                alert("此积分如有问题，请向管理员反馈。通过玩Fortress II : Siege可获得更多积分");
+                alert("<?=$ebhm?>");
             }
         </script>
         <?php
@@ -41,22 +43,22 @@ include './include/server-info.php';
                     $crtt=$row['crtt'];
                 }
                 if($dblvlp<500){
-                    $lvl="Fortress Noob";
+                    $lvl=$ebl1;
                     $next=500;
                     $percent=$dblvlp/$next*100;
                     $lvlb=1;
                 }else if($dblvlp<1500){
-                    $lvl="Fortress Starter";
+                    $lvl=$ebl2;
                     $next=1500;
                     $percent=$dblvlp/$next*100;
                     $lvlb=2;
                 }else if($dblvlp<2500){
-                    $lvl="Fortress Pro";
+                    $lvl=$ebl3;
                     $next=2500;
                     $percent=$dblvlp/$next*100;
                     $lvlb=3;
                 }else{
-                    $lvl="Fortress Star";
+                    $lvl=$ebl4;
                     $next=2500;
                     $percent=100;
                     $lvlb=4;
@@ -78,14 +80,17 @@ include './include/server-info.php';
                     die();
                 }?>
                 <i class="iconfont icon-username"></i><?php echo $_SESSION['username']; ?><br>
-                <a href="index.php" class="button button-primary"><i class="iconfont icon-i-back"></i>返回</a><br>
-                职业积分:(<a href="#" onclick="showhelp();">?</a>)：<?php echo $dbpoint;?>
+                <a href="index.php" class="button button-primary"><i class="iconfont icon-i-back"></i><?=$back?></a><br>
+                <?=$ebcp?>:(<a href="#" onclick="showhelp();">?</a>)：<?php echo $dbpoint;?>
                 <div class="LINEBOX"><div class="PERCENT LVLB"><center><?php echo $lvl.' '.$dblvlp.'/'.$next;?></center></div></div>
-    <br>职业：(蓝色已经拥有，绿色可以兑换，红色因为你等级过低不能兑换，按照推出时间排列)
+    <br>
     <?php
+    echo $ebde;
+    global $ebch;
+    global $ebcd;
     function replacement($num,$row){
-        $str=str_replace("1","拥有",$row[(string)$num]);
-        $str=str_replace("0","未拥有",$str);
+        $str=str_replace("1",$GLOBALS['ebch'],$row[(string)$num]);
+        $str=str_replace("0",$GLOBALS['ebcd'],$str);
         return $str;
     }
     function showbuy($able2buy,$str){
@@ -117,13 +122,14 @@ include './include/server-info.php';
                 $color="#55CC55";
                 $able2buy=true;
             }
-            echo '<tr style="background-color:'.$color.';"><td>'.replacement($times,$row).'</td><td>'.$truename[$times].'</td><td>'.ucfirst($level[$times]).'</td><td>'.showbuy($able2buy,'<a href="#" onclick="buy('.$times.','.$cost[$times].');">兑换('.$cost[$times].'积分)</a></td></tr>');
+            echo '<tr style="background-color:'.$color.';"><td>'.replacement($times,$row).'</td><td>'.$truename[$times].'</td><td>'.ucfirst($level[$times]).'</td><td>'.showbuy($able2buy,'<a href="#" onclick="buy('.$times.','.$cost[$times].');">'.$ebex.'('.$cost[$times].$ebpt.')</a></td></tr>');
             $times++;
         }
         echo '</table>';
     }
 ?>
 </div>
-<div style="color:white;" class="copyright"><p>&nbsp;&nbsp;&nbsp;Copyright &copy; 2014-<?php echo date('Y');?>.TS Studio All rights reserved.</p></div>
+<div style="color:white;" class="copyright"><p>&nbsp;&nbsp;&nbsp;<?=$copyright?>&copy; 2014-<?php
+echo date('Y'); ?>.TS Studio <?=$alrr?> 吉ICP备17003700号</p></div>
 </body>
 </html>

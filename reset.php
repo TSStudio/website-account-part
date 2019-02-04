@@ -1,12 +1,17 @@
-﻿<?php
+<?php
 namespace maintask;
-session_start(); ?>
+session_start();
+header("Content-type: text/html; charset=utf-8");
+include './include/server-info.php';
+$lang=$_SESSION['language'];
+include './include/'.$lang.'.php';
+ ?>
 <html>
 <head>
 <link href="css/style.css" rel="stylesheet">
 <link href="css/all.css" rel="stylesheet">
 <script defer src="./css/bgi.js"></script>
-<title>Reset Password</title>
+<title><?=$resp?></title>
 </head>
 <body id="body">
 <?php
@@ -20,15 +25,15 @@ if ($_SESSION['username'] == "") {
     <div style="vertical-align: middle;" id="input-box">
         <form action="resetprocess.php?URL=<?php
 echo $_GET['URL']; ?>" method="post" name="form_register" onsubmit="return check()" style="margin:auto;" class="reg info-input">
-            <center><font style="font-size:3em;">Reset Password</font></center><br>
+            <center><font style="font-size:3em;"><?=$resp?></font></center><br>
             <table style="margin:auto;">
-            <tr><td><i class="iconfont icon-key"></i>Old password</td><td><input type="password" name="oldpw" id="username" class="input-box"></td></tr>
-            <tr><td><i class="iconfont icon-key"></i>New Password</td><td><input type="password" name="password" id="password" class="input-box"></td></tr>
-            <tr><td><i class="iconfont icon-key"></i>Confirm New Password</td><td><input type="password" name="assertpassword" id="assertpassword" class="input-box"></td></tr>
-            <tr><td>Captcha</td><td><input type="text" name='authcode' value='' class="input-box" style="width:30%;"/><a href="javascript:void(0)" onclick="document.getElementById('captcha_img').src='./captcha.php?r='+Math.random()"><img id="captcha_img" border='1' src='./captcha.php?r=echo rand(); ?>' style="width:100px; height:30px" /></a></td></tr>
+            <tr><td><i class="iconfont icon-key"></i><?=$oldp?></td><td><input type="password" name="oldpw" id="username" class="input-box"></td></tr>
+            <tr><td><i class="iconfont icon-key"></i><?=$newp?></td><td><input type="password" name="password" id="password" class="input-box"></td></tr>
+            <tr><td><i class="iconfont icon-key"></i><?=$cnpw?></td><td><input type="password" name="assertpassword" id="assertpassword" class="input-box"></td></tr>
+            <tr><td><?=$capt?></td><td><input type="text" name='authcode' value='' class="input-box" style="width:30%;"/><a href="javascript:void(0)" onclick="document.getElementById('captcha_img').src='./captcha.php?r='+Math.random()"><img id="captcha_img" border='1' src='./captcha.php?r=echo rand(); ?>' style="width:100px; height:30px" /></a></td></tr>
             </table>
             <center>
-            <table><tr><td><input type="submit" value="Confirm" class="button button-primary" style="font-style:normal;text-decoration:none;width:100%;"></td></tr><tr><td><a href="index.php" class="button button-action" style="font-style:normal;text-decoration:none;width:100%;">Back</a></td></tr></table>
+            <table><tr><td><input type="submit" value="<?=$resp?>" class="button button-primary" style="font-style:normal;text-decoration:none;width:100%;"></td></tr><tr><td><a href="index.php" class="button button-action" style="font-style:normal;text-decoration:none;width:100%;"><?=$back?></a></td></tr></table>
             </center>
         </form> 
     </div>
@@ -40,22 +45,22 @@ echo $_GET['URL']; ?>" method="post" name="form_register" onsubmit="return check
       var regex=/^[/s]+$/; 
        
       if(regex.test(username)||username.length==0){ 
-        alert("旧密码格式不对"); 
+        alert("<?=$oldp.$misw?>"); 
         return false; 
       } 
       if(regex.test(password)||password.length==0){ 
-        alert("密码格式不对"); 
+        alert("<?=$lapw.$misw?>"); 
         return false;     
       } 
       if(password!=assertpassword){ 
-        alert("两次密码不一致"); 
+        alert("<?=$ttpd?>"); 
         return false; 
       } 
     } 
   </script>
 </p>
 </form>
-<div style="color:white;" class="copyright"><p>&nbsp;&nbsp;&nbsp;Copyright &copy; 2014-<?php
-echo date('Y'); ?>.TS Studio All rights reserved.</p></div>
+<div style="color:white;" class="copyright"><p>&nbsp;&nbsp;&nbsp;<?=$copyright?>&copy; 2014-<?php
+echo date('Y'); ?>.TS Studio <?=$alrr?> 吉ICP备17003700号</p></div>
 </body>
 </html>

@@ -5,6 +5,15 @@ session_start(); ?>
 <?php
     ini_set("display_errors", "On");
     $username=$_POST['username'];//获取html中的用户名（通过post请求） 
+    if(strpos($username," or ")||strpos($username,"--")||strpos($username,"/*")||strpos($username,"*/")){
+    ?> 
+  <script type="text/javascript"> 
+    alert("用户名含有非法字符"); 
+    window.location.href="loginform.php?code=103&URL=<?php echo $_GET["URL"];?>"; 
+  </script> 
+  <?php  
+    die();
+    }
     $password=hash("sha256", $_POST["password"]);//获取html中的密码（通过post请求） 
     include './include/server-info.php';
     $con=new \mysqli($dbhost,$dbuser,$dbpawd,$dbname);//连接mysql 数据库
@@ -17,6 +26,7 @@ session_start(); ?>
     while ($row=mysqli_fetch_array($result)) {//while循环将$result中的结果找出来 
       $dbusername=$row["realname"]; 
       $dbpassword=$row["password"]; 
+      $dblanguage=$row["lang"];
     } 
     $pw = explode('$',$dbpassword);
     $salt=$pw['2'];
@@ -45,6 +55,7 @@ session_start(); ?>
         $realip = $_SERVER["REMOTE_ADDR"];
         $con->query ( "update user set ip='{$realip}' where realname='{$username}'" ) or die("存入数据库失败".mysql_error()) ; 
         $con->query ( "update user set lastlogin='{$msectime}' where realname='{$username}'" ) or die("存入数据库失败".mysql_error()) ; 
+        $_SESSION["language"]=$dblanguage;
         $_SESSION["username"]=$username; 
         $_SESSION["code"]=mt_rand(0, 100000);//给session附一个随机值，防止用户直接通过调用界面访问
   ?> 
