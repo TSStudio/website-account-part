@@ -73,3 +73,7 @@ $ebl1="Fortress Noob";
 $ebl2="Fortress Starter";
 $ebl3="Fortress Pro";
 $ebl4="Fortress Star";
+//settings
+$stst="System Status";
+$avsv="Available Now";
+$navs="Not Available";

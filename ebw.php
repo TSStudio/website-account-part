@@ -1,7 +1,13 @@
 <?php 
 namespace maintask;
 session_start();
+error_reporting(E_ALL || ~E_NOTICE);
 header("Content-type: text/html; charset=utf-8");
+if ($_SESSION['username']==""){
+    echo "You are not logging in,jumping to the log-in page.";
+    header('Refresh:0;url=loginform.php?URL=quest.php&code=105');
+die();
+}
 include './include/classes.php';
 include './include/server-info.php';
 $lang=$_SESSION['language'];
@@ -72,13 +78,6 @@ include './include/'.$lang.'.php';
         </head>
             <body id="body">
             <div id="Main">
-                <?php
-                error_reporting(E_ALL || ~E_NOTICE);
-                if ($_SESSION['username']==""){
-                    echo "You are not logging in,jumping to the log-in page.";
-                    header('Refresh:0;url=loginform.php?URL=ebw.php&code=105');
-                    die();
-                }?>
                 <i class="iconfont icon-username"></i><?php echo $_SESSION['username']; ?><br>
                 <a href="index.php" class="button button-primary"><i class="iconfont icon-i-back"></i><?=$back?></a><br>
                 <?=$ebcp?>:(<a href="#" onclick="showhelp();">?</a>)：<?php echo $dbpoint;?>

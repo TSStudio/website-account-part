@@ -1,18 +1,19 @@
 <?php 
 namespace maintask;
 session_start();
+error_reporting(E_ALL || ~E_NOTICE);
 header("Content-type: text/html; charset=utf-8");
+if ($_SESSION['username']==""){
+    echo "You are not logging in,jumping to the log-in page.";
+    header('Refresh:0;url=loginform.php?URL=quest.php&code=105');
+die();
+}
 include './include/classes.php';
-include './include/server-info.php';
 include './include/server-info.php';
 $lang=$_SESSION['language'];
 include './include/'.$lang.'.php';
 error_reporting(E_ALL || ~E_NOTICE);
-if ($_SESSION['username']==""){
-    echo "You are not logging in,jumping to the log-in page.";
-    header('Refresh:0;url=loginform.php?URL=quest.php&code=105');
-    die();
-}?>
+?>
 <html>
     <head>
         <link href="css/style.css" rel="stylesheet">

@@ -39,7 +39,23 @@ if ($lang=="zh_CN"){
                     echo "You are not logging in,jumping to the log-in page.";
                     header('Refresh:0;url=loginform.php?URL=settings.php&code=105');
                     die();
-                }?>
+                }
+                $services=array("Pan-Download"=>"on","Pan-Upload"=>"off","ebw-class-show"=>"on","ebw-class-buy"=>"on","ebw-level-show"=>"on");
+                $available="<h4>".$avsv."</h4><br>";
+                $navailabl="<br><h4>".$navs."</h4><br>";
+                foreach($services as $serv=>$stat){
+                    if($stat=="on"){
+                        $available=$available.$serv."<br>";
+                    }else if($stat=="off"){
+                        $navailabl=$navailabl.$serv."<br>";
+                    }
+                };
+                $status="<br>".$available."<br>".$navailabl;
+                
+                
+                
+                
+                ?>
                 <h2><?=$setn?></h2>
                 <i class="iconfont icon-username"></i><?php echo $_SESSION['username']; ?><br>
                 <a href="index.php" class="button button-primary"><i class="iconfont icon-i-back"></i><?=$back?></a><br>
@@ -52,6 +68,8 @@ if ($lang=="zh_CN"){
                 <br><br>
                 <input type="submit" value="更改/Confirm">
                 </form>
+                <h3><?=$stst?></h3>
+                <?=$status?>
         </table>
         </div>
         <script>

@@ -1,4 +1,10 @@
 ﻿<?php session_start();
+error_reporting(E_ALL || ~E_NOTICE);
+if ($_SESSION['username']==""){
+    echo "You are not logging in,jumping to the log-in page.";
+    header('Refresh:0;url=loginform.php?URL=quest.php&code=105');
+die();
+}
 include './include/server-info.php';
 $lang=$_SESSION['language'];
 include './include/'.$lang.'.php';
@@ -26,13 +32,6 @@ include './include/'.$lang.'.php';
             <i class="fa fa-spinner fa-pulse fa-5x" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);"></i>
         </div>
         <div id="Main" style="display:none;">
-<?php
-                error_reporting(E_ALL || ~E_NOTICE);
-                if ($_SESSION['username']==""){
-                    echo "You are not logging in,jumping to the log-in page.";
-                    header('Refresh:0;url=loginform.php?URL=index.php&code=105');
-                    die();
-                }?>
                 <i class="iconfont icon-username"></i><?php echo $_SESSION['username']; ?>
         <table><tr><td><a href="logout.php?URL=index.php" style="font-style:normal;text-decoration:none;width:100%;" class="button button-caution"><i class="iconfont icon-login"></i><?=$ladc?></a></td></tr>
         <tr><td><a href="http://pan.tmysam.top/?session_id=<?php echo base64_encode(session_id());?>" style="font-style:normal;text-decoration:none;width:100%;" class="button button-primary"><i class="iconfont icon-disk"></i><?=$ls01?></a></td></tr>
