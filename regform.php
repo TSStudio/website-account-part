@@ -35,7 +35,7 @@ include './include/zh_CN.php';
       var regex=/^[/s]+$/; 
        
       if(regex.test(username)||username.length==0){ 
-        alert("<?=$oldp.$misw?>"); 
+        alert("<?=$lapw.$misw?>"); 
         return false; 
       } 
       if(regex.test(password)||password.length==0){ 

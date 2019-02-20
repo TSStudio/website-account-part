@@ -1,6 +1,7 @@
-﻿<?php
+<?php
 namespace maintask;
 include './include/server-info.php';
+header("Content-type: text/html; charset=utf-8");
 session_start();
 error_reporting(E_ALL || ~ E_NOTICE);
 ?>

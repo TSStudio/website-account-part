@@ -42,7 +42,7 @@ if ($lang=="zh_CN"){
                 }
                 $services=array("Pan-Download"=>"on","Pan-Upload"=>"off","ebw-class-show"=>"on","ebw-class-buy"=>"on","ebw-level-show"=>"on");
                 $available="<h4>".$avsv."</h4><br>";
-                $navailabl="<br><h4>".$navs."</h4><br>";
+                $navailabl="<h4>".$navs."</h4><br>";
                 foreach($services as $serv=>$stat){
                     if($stat=="on"){
                         $available=$available.$serv."<br>";
@@ -50,7 +50,7 @@ if ($lang=="zh_CN"){
                         $navailabl=$navailabl.$serv."<br>";
                     }
                 };
-                $status="<br>".$available."<br>".$navailabl;
+                $status=$available."<br>".$navailabl;
                 
                 
                 

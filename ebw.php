@@ -5,7 +5,7 @@ error_reporting(E_ALL || ~E_NOTICE);
 header("Content-type: text/html; charset=utf-8");
 if ($_SESSION['username']==""){
     echo "You are not logging in,jumping to the log-in page.";
-    header('Refresh:0;url=loginform.php?URL=quest.php&code=105');
+    header('Refresh:0;url=loginform.php?URL=ebw.php&code=105');
 die();
 }
 include './include/classes.php';
