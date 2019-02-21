@@ -1,12 +1,12 @@
 ## TSS WEBSITE OPENSOURCE PROJECT
 ### ACCOUNT PART
 ### 使用指南
-PHP 5.6+
+PHP 5.6+,mysql数据库
 
-克隆本库
+#### 克隆本库
 
 `git-clone https://github.com/TSStudio/website-account-part.git`
-
+#### 修改配置文件
 将
 
 `include/server-info.php.default`
@@ -30,10 +30,13 @@ PHP 5.6+
     $dbname=;//数据库名
     $dbhost=$dbhost.':'.$dbport;//勿动
 ```
+#### 导入SQL表
+直接导入user.sql (表名为user)
+
 ### PHP7注意
 ~~请在每一个用了数据库的页面加上~~
 ~~`include "php7-support.php";`~~
-已经完美支持PHP7
+已经完美支持PHP7(PHP5.6以上都可使用PHP7版本，分支只是我测试用的版本)
 ### 和源站的区别
-没有exchange.php,里面有一些东西不能拿出来的
+没有exchange.php,内容保密
 ### 欢迎提交BUG 请到issues页面
