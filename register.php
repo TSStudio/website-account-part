@@ -8,15 +8,12 @@ error_reporting(E_ALL || ~ E_NOTICE);
 <html>
 <body>
   <?php
-if (isset($_REQUEST['authcode'])) {
-    session_start();
-    if (strtolower($_REQUEST['authcode']) != $_SESSION['authcode']) {
-        //提示以及跳转页面
-        echo "<script language=\"javascript\">";
-        echo "document.location=\"./regform.php?URL=" . $_GET['URL'] . "&code=106\"";
-        echo "</script>";
-        exit();
-    }
+$iptru=$_SERVER["HTTP_X_FORWARDED_FOR"];
+$url='https://ssl.captcha.qq.com/ticket/verify?aid='.$captappid.'&AppSecretKey='.$captappsecret.'&Ticket='.$_POST['ticket'].'&Randstr='.$_POST['randstr'].'&UserIP='.$iptru;
+$html = file_get_contents($url);
+$json = json_decode($html,true);
+if($json['response']!=1){
+    echo '验证失败';
 }
 $username = $_POST["username"];
 if(strpos($username," or ")||strpos($username,"--")||strpos($username,"/*")||strpos($username,"*/")){
@@ -65,7 +62,7 @@ if (!is_null($dbusername)) {
 list($msec, $sec) = explode(' ', microtime());
 $msectime = (float)sprintf('%.0f', (floatval($msec) + floatval($sec)) * 1000);
 $realname = strtolower($username);
-$realip = $_SERVER["REMOTE_ADDR"];
+$realip = $_SERVER["HTTP_X_FORWARDED_FOR"];
 mysql_query("insert into user (username,regip,ip,world,x,y,z,regdate,lastlogin,name,realname,password) values('0','{$realip}','{$realip}','world','0','0','0','{$msectime}','{$msectime}','{$realname}','{$username}','{$password}')") or die("存入数据库失败" . mysql_error());
 mysql_close($con);
 $_SESSION["username"] = $username;
