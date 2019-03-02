@@ -14,11 +14,10 @@ include './include/server-info.php';
 window.subm = function(res){
     console.log(res)
     if(res.ret === 0){
-        alert(res.ticket)   // 票据
+        yz=true;
     }
-    var ticke=res.ticket;
-    var rands=res.randstr;
-    var yz=true;
+    ticke=res.ticket;
+    rands=res.randstr;
 }
 </script>
 </head>
@@ -33,7 +32,7 @@ window.subm = function(res){
             <tr><td><i class="iconfont icon-key"></i><?=$cnpw?></td><td><input type="password" name="assertpassword" id="assertpassword" class="input-box"></td></tr>
             <input type="text" style="display:none;" id="capti" name="ticket">
             <input type="text" style="display:none;" id="captr" name="randstr">
-            <tr><td><?=$capt?></td><td><button id="TCaptcha" class="button button-action" data-appid="<?=$captappid?>" data-cbfn="subm">验证</button></td></tr>
+            <tr><td><?=$capt?></td><td><button id="TencentCaptcha" type="button" class="button button-action" data-appid="<?=$captappid?>" data-cbfn="subm">验证</button></td></tr>
             </table>
             <center>
             <?=$wycr?><a href="Policy.html" target="view_window"><?=$lise?></a><br>
@@ -51,8 +50,8 @@ window.subm = function(res){
         }
         var cap = document.getElementById('capti');
         var car = document.getElementById('captr');
-        var cap.value=ticke;
-        var car.value=rands;
+        cap.value=window.ticke;
+        car.value=window.rands;
         form.submit();
     }
     function check() { 
