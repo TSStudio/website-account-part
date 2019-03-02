@@ -38,15 +38,14 @@ function random($length) {
 $randomstr = random(15);
 $password = hash("sha256", $password . $randomstr);
 $password = '$SHA$' . $randomstr . '$' . $password;
-$con = mysql_connect($dbhost, $dbuser, $dbpawd);
+$con = mysqli_connect($dbhost, $dbuser, $dbpawd, $dbname);
 if (!$con) {
-    die('数据库连接失败' . $mysql_error());
+    die('数据库连接失败' . mysqli_error());
 }
-mysql_select_db($dbname, $con);
 $dbusername = null;
 $dbpassword = null;
-$result = mysql_query("select * from user where realname ='{$username}';");
-while ($row = mysql_fetch_array($result)) {
+$result = $con->query("select * from user where realname ='{$username}';");
+while ($row = mysqli_fetch_array($result)) {
     $dbusername = $row["realname"];
     $dbpassword = $row["password"];
 }
@@ -63,8 +62,8 @@ list($msec, $sec) = explode(' ', microtime());
 $msectime = (float)sprintf('%.0f', (floatval($msec) + floatval($sec)) * 1000);
 $realname = strtolower($username);
 $realip = $_SERVER["HTTP_X_FORWARDED_FOR"];
-mysql_query("insert into user (username,regip,ip,world,x,y,z,regdate,lastlogin,name,realname,password) values('0','{$realip}','{$realip}','world','0','0','0','{$msectime}','{$msectime}','{$realname}','{$username}','{$password}')") or die("存入数据库失败" . mysql_error());
-mysql_close($con);
+$con->query("insert into user (username,regip,ip,world,x,y,z,regdate,lastlogin,name,realname,password) values('0','{$realip}','{$realip}','world','0','0','0','{$msectime}','{$msectime}','{$realname}','{$username}','{$password}')") or die("存入数据库失败" . mysqli_error());
+$con->close();
 $_SESSION["username"] = $username;
 $_SESSION["id"] = $time;
 $_SESSION["language"] = "zh_CN";
