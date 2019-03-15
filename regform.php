@@ -8,7 +8,6 @@ include './include/server-info.php';
 <title><?=$regi?></title>
 <link href="css/style.css" rel="stylesheet">
 <link href="css/all.css" rel="stylesheet">
-<script defer src="./css/bgi.js"></script>
 <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
 <script>
 window.subm = function(res){
@@ -19,6 +18,7 @@ window.subm = function(res){
     ticke=res.ticket;
     rands=res.randstr;
 }
+
 </script>
 </head>
 <body id="body">
@@ -54,6 +54,19 @@ window.subm = function(res){
         car.value=window.rands;
         form.submit();
     }
+    document.onkeydown=function(event){ 
+    var e = event || window.event || arguments.callee.caller.arguments[0]; 
+        if(e && e.keyCode==13){ // 按 Enter 
+            if(!yz){
+                alert('请完成验证');
+            }
+            var cap = document.getElementById('capti');
+            var car = document.getElementById('captr');
+            cap.value=window.ticke;
+            car.value=window.rands;
+            form.submit();
+        }
+    };
     function check() { 
       var username=document.getElementById("username").value; 
       var password=document.getElementById("password").value; 
@@ -77,4 +90,5 @@ window.subm = function(res){
 <div style="color:white;" class="copyright"><p>&nbsp;&nbsp;&nbsp;<?=$copyright?>&copy; 2014-<?php
 echo date('Y'); ?>.TS Studio <?=$alrr?> 吉ICP备17003700号</p></div>
 </body>
+<script defer src="./css/bgi.js"></script>
 </html>

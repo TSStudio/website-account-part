@@ -61,7 +61,7 @@ $ls05="Settings";
 //ebw
 $ebex="Exchange";
 $ebpt="Point(s)";
-$ebch="Owned";
+$ebch="Already Owned";
 $ebcd="Not-Owned";
 $ebde="Classes:(You owned the blues, are able to buy the grees, aren't able to buy the reds)";
 $eblp="Level Point";
@@ -77,3 +77,15 @@ $ebl4="Fortress Star";
 $stst="System Status";
 $avsv="Available Now";
 $navs="Not Available";
+//payment
+$cash="Cashier";
+$objb="Buying Object:";
+$f2sj="Fortress II:Siege Class";
+$poin="Balance:";
+$pcos="Total:";
+$pres="After:";
+$chid="Order ID:";
+$lvtl="Level is too low";
+$nept="Balance is not enough";
+$egcl="Failed to genreate a Order ID";
+$chec="Check";

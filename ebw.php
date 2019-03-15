@@ -18,13 +18,11 @@ include './include/'.$lang.'.php';
         <link href="css/style.css" rel="stylesheet">
         <link href="css/all.css" rel="stylesheet">
         <link href="css/pct.css" rel="stylesheet">
-        <script defer src="./css/bgi.js"></script>
         <title>Fortress II:Siege</title>
         <script>
             function buy(cass,cost){
-                frsc=confirm('<?=$ebbm?>');
-                if(frsc&&confirm("<?=$ebb2?>"+cost+"<?=$ebpt?>")){
-                    window.location.href="exchange.php?class="+cass;
+                if(confirm("<?=$ebb2?>"+cost+"<?=$ebpt?>")){
+                    window.location.href="pay.php?class="+cass;
                 }
             }
             function showhelp(){
@@ -81,7 +79,7 @@ include './include/'.$lang.'.php';
                 <i class="iconfont icon-username"></i><?php echo $_SESSION['username']; ?><br>
                 <a href="index.php" class="button button-primary"><i class="iconfont icon-i-back"></i><?=$back?></a><br>
                 <?=$ebcp?>:(<a href="#" onclick="showhelp();">?</a>)：<?php echo $dbpoint;?>
-                <div class="LINEBOX"><div class="PERCENT LVLB"><center><?php echo $lvl.' '.$dblvlp.'/'.$next;?></center></div></div>
+                <div class="LINEBOX"><div class="PERCENT LVLB"><nobr><center><?php echo $lvl.' '.$dblvlp.'/'.$next;?></center></nobr></div></div>
     <br>
     <?php
     echo $ebde;
@@ -131,4 +129,5 @@ include './include/'.$lang.'.php';
 <div style="color:white;" class="copyright"><p>&nbsp;&nbsp;&nbsp;<?=$copyright?>&copy; 2014-<?php
 echo date('Y'); ?>.TS Studio <?=$alrr?> 吉ICP备17003700号</p></div>
 </body>
+<script defer src="./css/bgi.js"></script>
 </html>

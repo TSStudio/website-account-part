@@ -52,7 +52,7 @@ session_start(); ?>
       else { 
         list($msec, $sec) = explode(' ', microtime());
         $msectime =  (float)sprintf('%.0f', (floatval($msec) + floatval($sec)) * 1000);
-        $realip = $_SERVER["REMOTE_ADDR"];
+        $realip = $_SERVER["HTTP_X_FORWARDED_FOR"];
         $con->query ( "update user set ip='{$realip}' where realname='{$username}'" ) or die("存入数据库失败".mysql_error()) ; 
         $con->query ( "update user set lastlogin='{$msectime}' where realname='{$username}'" ) or die("存入数据库失败".mysql_error()) ; 
         $_SESSION["language"]=$dblanguage;

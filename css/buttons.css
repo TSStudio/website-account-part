@@ -24,6 +24,8 @@
   -webkit-transition-duration: .3s;
           transition-duration: .3s;
 }
+.button-pill {
+  border-radius: 200px; }
   .button:visited {
     color: #666; }
   .button:hover, .button:focus {

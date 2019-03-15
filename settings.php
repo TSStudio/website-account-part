@@ -14,21 +14,10 @@ if ($lang=="zh_CN"){
     <head>
         <link href="css/style.css" rel="stylesheet">
         <link href="css/all.css" rel="stylesheet">
-        <script src="./jquery-3.3.1.min.js"></script>
-        <script src="./jquery.lazyload.min.js"></script>
-        <script src="./css/bgi.js"></script>
-        <script>
-            $(function(){
-            $("body.lazy").lazyload({
-                effect: 'fadeIn',
-                threshold: '200',
-                failure_limit: '10'
-            });
-            });
-        </script>
+        
         <title><?=$htit?></title>
     </head>
-    <body id="body" class="lazy" data-original="css/background.png">
+    <body id="body" class="lazy">
         <div id="load">
             <i class="fa fa-spinner fa-pulse fa-5x" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);"></i>
         </div>
@@ -85,4 +74,5 @@ if ($lang=="zh_CN"){
         <div style="color:white;" class="copyright"><p>&nbsp;&nbsp;&nbsp;<?=$copyright?>&copy; 2014-<?php
 echo date('Y'); ?>.TS Studio <?=$alrr?> 吉ICP备17003700号</p></div>
     </body>
+    <script src="./css/bgi.js"></script>
 </html>

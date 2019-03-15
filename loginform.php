@@ -5,7 +5,6 @@ include './include/zh_CN.php';
 <head>
 <link href="css/style.css" rel="stylesheet">
 <link href="css/all.css" rel="stylesheet">
-<script defer src="./css/bgi.js"></script>
 <title><?=$logi?></title>
 </head>
 <body id="body">
@@ -49,4 +48,5 @@ error_reporting(E_ALL || ~E_NOTICE);?>
 <div style="color:white;" class="copyright"><p>&nbsp;&nbsp;&nbsp;<?=$copyright?>&copy; 2014-<?php
 echo date('Y'); ?>.TS Studio <?=$alrr?> 吉ICP备17003700号</p></div>
 </body>
+<script defer src="./css/bgi.js"></script>
 </html>
