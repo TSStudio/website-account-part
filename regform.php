@@ -23,7 +23,7 @@ include './include/server-info.php';
             <input type="text" style="display:none;" id="captr" name="randstr">
             <tr><td><?=$capt?></td>
             <td><button id="TencentCaptcha" type="button" class="button button-action" data-appid="<?=$captappid?>" data-cbfn="subm">验证</button>
-            <div style="display:none;" id="CaptchaPass">已验证</div></td></tr>
+            <div style="display:none;" id="CaptchaPass"><i style="font-size:2em;" class="iconfont icon-checkmarktickse"></i></div></td></tr>
             </table>
             <center>
             <?=$wycr?><a href="Policy.html" target="view_window"><?=$lise?></a><br>
