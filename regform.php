@@ -9,17 +9,6 @@ include './include/server-info.php';
 <link href="css/style.css" rel="stylesheet">
 <link href="css/all.css" rel="stylesheet">
 <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
-<script>
-window.subm = function(res){
-    console.log(res)
-    if(res.ret === 0){
-        yz=true;
-    }
-    ticke=res.ticket;
-    rands=res.randstr;
-}
-
-</script>
 </head>
 <body id="body">
     <div style="vertical-align: middle;" id="input-box">
@@ -32,7 +21,9 @@ window.subm = function(res){
             <tr><td><i class="iconfont icon-key"></i><?=$cnpw?></td><td><input type="password" name="assertpassword" id="assertpassword" class="input-box"></td></tr>
             <input type="text" style="display:none;" id="capti" name="ticket">
             <input type="text" style="display:none;" id="captr" name="randstr">
-            <tr><td><?=$capt?></td><td><button id="TencentCaptcha" type="button" class="button button-action" data-appid="<?=$captappid?>" data-cbfn="subm">验证</button></td></tr>
+            <tr><td><?=$capt?></td>
+            <td><button id="TencentCaptcha" type="button" class="button button-action" data-appid="<?=$captappid?>" data-cbfn="subm">验证</button>
+            <div style="display:none;" id="CaptchaPass">已验证</div></td></tr>
             </table>
             <center>
             <?=$wycr?><a href="Policy.html" target="view_window"><?=$lise?></a><br>
@@ -41,6 +32,21 @@ window.subm = function(res){
             </center>
         </form> 
     </div>
+    <script>
+window.subm = function(res){
+    console.log(res)
+    if(res.ret === 0){
+        yz=true;
+    }
+    ticke=res.ticket;
+    rands=res.randstr;
+    captbutton=document.getElementById('TencentCaptcha');
+    captdone=document.getElementById('CaptchaPass');
+    captbutton.style.display="none";
+    captdone.style.display="block";
+}
+
+</script>
   <script type="text/javascript">
     var form = document.getElementById('input-form');
     var go = document.getElementById('subbutt');
