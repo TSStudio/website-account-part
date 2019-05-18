@@ -78,7 +78,7 @@ $stst="System Status";
 $avsv="Available Now";
 $navs="Not Available";
 //payment
-$cash="Cashier";
+$cash="Cashier-TS PowerPay";
 $objb="Buying Object:";
 $f2sj="Fortress II:Siege Class";
 $poin="Balance:";

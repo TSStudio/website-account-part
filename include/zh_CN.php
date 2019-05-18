@@ -78,7 +78,7 @@ $stst="系统状态";
 $avsv="可用的服务";
 $navs="不可用的服务";
 //payment
-$cash="收银台";
+$cash="收银台-TS PowerPay";
 $objb="购买项目信息";
 $f2sj="Fortress II:Siege 职业";
 $poin="余额:";
