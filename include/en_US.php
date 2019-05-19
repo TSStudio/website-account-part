@@ -18,6 +18,8 @@ $haac="Have an account?";
 $wycr="When you press register，you agree ";
 $lise="the policy";
 $ladc="Log-out";
+$emai="Email";
+$emnr="Email address is invalid";
 //General
 $back="Back";
 $copyright="Copyright ";

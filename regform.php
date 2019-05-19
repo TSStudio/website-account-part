@@ -17,6 +17,7 @@ include './include/server-info.php';
             <table style="margin:auto;">
             <center style="background-color:rgba(255,50,50,0.5);"><i class="iconfont icon-warning"></i><?php if ($_GET['code']=="100"){echo $erro.$e100;}else if($_GET['code']=="101"){echo $erro.$e101;}else if($_GET['code']=="102"){echo $erro.$e102;}else if($_GET['code']=="103"){echo $erro.$e103;}else if($_GET['code']=="104"){echo $erro.$e104;}else if($_GET['code']=="105"){echo $erro.$e105;}else if($_GET['code']=="106"){echo $erro.$e106;}else if($_GET['code']=="107"){echo $erro.$e107;}?></center><br>
             <tr><td><i class="iconfont icon-username"></i><?=$usnm?></td><td><input type="text" name="username" id="username" class="input-box"></td></tr>
+            <tr><td><i class="iconfont icon-mailenvelopeletteremailnewsletter"></i><?=$emai?></td><td><input type="email" name="email" id="email" class="input-box"></td></tr>
             <tr><td><i class="iconfont icon-key"></i><?=$lapw?></td><td><input type="password" name="password" id="password" class="input-box"></td></tr>
             <tr><td><i class="iconfont icon-key"></i><?=$cnpw?></td><td><input type="password" name="assertpassword" id="assertpassword" class="input-box"></td></tr>
             <input type="text" style="display:none;" id="capti" name="ticket">
@@ -77,8 +78,13 @@ window.subm = function(res){
       var username=document.getElementById("username").value; 
       var password=document.getElementById("password").value; 
       var assertpassword=document.getElementById("assertpassword").value;
+      var email=document.getElementById("email").value;
       var regex=/^[/s]+$/; 
-       
+      var szReg=/^[A-Za-zd]+([-_.][A-Za-zd]+)*@([A-Za-zd]+[-.])+[A-Za-zd]{2,5}$/;
+      if(szReg.test(email)||email.length==0){
+        alert("<?=$emnr?>");
+        return false;
+      }
       if(regex.test(username)||username.length==0){ 
         alert("<?=$lapw.$misw?>"); 
         return false; 

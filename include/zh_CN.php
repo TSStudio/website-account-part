@@ -18,6 +18,8 @@ $haac="有账户?";
 $wycr="当你点击注册时，即代表同意";
 $lise="条款";
 $ladc="登出";
+$emai="Email";
+$emnr="邮件地址不合法";
 //General
 $back="返回";
 $copyright="版权所有";
