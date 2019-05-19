@@ -24,7 +24,7 @@ $value=$cost[$class];
 $con=new mysqli($dbhost,$dbuser,$dbpawd,$dbname);
 $dbusername=null;
 $dbjob=null;
-$result = $con->query( "select username,{$class} from class where username ='{$username}';" ); 
+$result = $con->query( "select username,`{$class}` from class where username ='{$username}';" ); 
 while ($row=mysqli_fetch_array($result)) {//while循环将$result中的结果找出来 
     $dbusername=$row["username"]; 
     $dbjob=$row[$class]; 
