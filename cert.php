@@ -1,5 +1,4 @@
 <?php
-namespace maintask;
 include './include/server-info.php';
 $bgurl="./css/cert.png";
 $info=getimagesize($bgurl);

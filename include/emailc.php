@@ -1,5 +1,4 @@
 <?php
-namespace maintask;
 $secret=$_GET["mailsecret"];
 include './include/server-info.php';
 header("Content-type: text/html; charset=utf-8");

@@ -1,5 +1,4 @@
 <?php
-namespace maintask;
 //Auth
 $usnm="Username";
 $resp="Reset password";

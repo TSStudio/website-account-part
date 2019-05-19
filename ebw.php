@@ -1,5 +1,4 @@
 <?php 
-namespace maintask;
 session_start();
 error_reporting(E_ALL || ~E_NOTICE);
 header("Content-type: text/html; charset=utf-8");

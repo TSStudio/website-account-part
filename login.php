@@ -1,5 +1,4 @@
 <?php
-namespace maintask;
 session_start(); ?>
 <html>
 <?php
