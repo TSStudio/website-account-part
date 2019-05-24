@@ -40,10 +40,6 @@ if ($lang=="zh_CN"){
                     }
                 };
                 $status=$available."<br>".$navailabl;
-                
-                
-                
-                
                 ?>
                 <h2><?=$setn?></h2>
                 <i class="iconfont icon-username"></i><?php echo $_SESSION['username']; ?><br>
@@ -57,6 +53,17 @@ if ($lang=="zh_CN"){
                 <br><br>
                 <input type="submit" value="更改/Confirm">
                 </form>
+                <h3>安全/Security</h3>
+                Your Email:<?=$_SESSION['email']?>
+                <?php
+                    if($_SESSION['isEmailConfirmed']){
+                        echo '<font style="background-color:#33EE33;color:#222222;">已验证/Confirmed</font>';
+                    }else{
+                        echo '<font style="background-color:#33EE33;color:#222222;">未验证/Confirmed</font>';
+                    }
+
+                ?>
+                <a href="reemail.php" class="button button-royal">更改/Update</a><br>
                 <h3><?=$stst?></h3>
                 <?=$status?>
         </table>

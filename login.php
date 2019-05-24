@@ -21,11 +21,13 @@ session_start(); ?>
     }
     $dbusername=null; 
     $dbpassword=null; 
-    $result=$con->query("select * from user where realname ='{$username}';");//查出对应用户名的信息，isdelete表示在数据库已被删除的内容 
+    $result=$con->query("select realname,password,lang,email,isEmailConfirmed from user where realname ='{$username}';");//查出对应用户名的信息，isdelete表示在数据库已被删除的内容 
     while ($row=mysqli_fetch_array($result)) {//while循环将$result中的结果找出来 
       $dbusername=$row["realname"]; 
       $dbpassword=$row["password"]; 
       $dblanguage=$row["lang"];
+      $dbemail=$row["email"];
+      $isDbemailConfirmed=$row["isEmailConfirmed"];
     } 
     $pw = explode('$',$dbpassword);
     $salt=$pw['2'];
@@ -57,6 +59,12 @@ session_start(); ?>
         $_SESSION["language"]=$dblanguage;
         $_SESSION["username"]=$username; 
         $_SESSION["code"]=mt_rand(0, 100000);//给session附一个随机值，防止用户直接通过调用界面访问
+        if($isDbemailConfirmed==1){
+          $_SESSION["isEmailConfirmed"]=true;
+        }else{
+          $_SESSION["isEmailConfirmed"]=false;
+        }
+        $_SESSION["email"]=$dbemail;
   ?> 
   <script type="text/javascript"> 
     window.location.href="<?php echo $_GET["URL"]."?session_id=".session_id();?>"; 
