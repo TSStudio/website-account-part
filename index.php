@@ -19,7 +19,7 @@ include './include/'.$lang.'.php';
         <div id="Main">
         <i class="iconfont icon-username"></i><?php echo $_SESSION['username']; ?>
         <table><tr><td><a href="logout.php?URL=index.php" style="font-style:normal;text-decoration:none;width:100%;" class="button button-caution"><i class="iconfont icon-login"></i><?=$ladc?></a></td></tr>
-        <tr><td><a href="http://pan.tmysam.top/?session_id=<?php echo base64_encode(session_id());?>" style="font-style:normal;text-decoration:none;width:100%;" class="button button-primary"><i class="iconfont icon-disk"></i><?=$ls01?></a></td></tr>
+        <tr><td><a href="BLOGGER" style="font-style:normal;text-decoration:none;width:100%;" class="button button-primary"><i class="iconfont icon-disk"></i><?=$ls01?></a></td></tr>
         <tr><td><a href="reset.php" style="font-style:normal;text-decoration:none;width:100%;" class="button button-action"><i class="iconfont icon-refresh"></i><?=$ls02?></a></td></tr>
         <tr><td><a href="ebw.php" style="font-style:normal;text-decoration:none;width:100%;" class="button button-royal"><?=$ls03?></a></td></tr>
         <tr><td><a href="quest.php" style="font-style:normal;text-decoration:none;width:100%;" class="button button-highlight"><?=$ls04?></a></td></tr>

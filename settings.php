@@ -59,7 +59,7 @@ if ($lang=="zh_CN"){
                     if($_SESSION['isEmailConfirmed']){
                         echo '<font style="background-color:#33EE33;color:#222222;">已验证/Confirmed</font>';
                     }else{
-                        echo '<font style="background-color:#33EE33;color:#222222;">未验证/Confirmed</font>';
+                        echo '<font style="background-color:#EE3333;color:#222222;">未验证/Not Confirmed</font>';
                     }
 
                 ?>

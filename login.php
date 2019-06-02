@@ -67,7 +67,7 @@ session_start(); ?>
         $_SESSION["email"]=$dbemail;
   ?> 
   <script type="text/javascript"> 
-    window.location.href="<?php echo $_GET["URL"]."?session_id=".session_id();?>"; 
+    window.location.href="<?php echo $_GET["URL"];?>"; 
   </script> 
   <?php  
       } 

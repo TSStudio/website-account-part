@@ -54,7 +54,7 @@ $quct="Content：";
 $buid="Bilibili UID";
 //home
 $htit="Home";
-$ls01="Photo Lab";
+$ls01="BLOGGER";
 $ls02="Reset Password";
 $ls03="Fortress II : Siege Point exchange";
 $ls04="Authorization application";
