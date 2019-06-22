@@ -10,14 +10,14 @@ if ($_SESSION['username']==""){
 }
 if(isset($_REQUEST['authcode'])){
     if(strtolower($_REQUEST['authcode'])!= $_SESSION['authcode']){
-      //提示以及跳转页面
-      echo "<script language=\"javascript\">";
-      echo "alert(\"验证码错误\");";
-      echo "document.location=\"./quest.php\"";
-      echo "</script>";
-      exit();
+        //提示以及跳转页面
+        echo "<script language=\"javascript\">";
+        echo "alert(\"验证码错误\");";
+        echo "document.location=\"./quest.php\"";
+        echo "</script>";
+        exit();
     }
-  } 
+} 
 $uid=$_POST['uid'];
 $content=$_POST['content'];
 if(empty($uid)||empty($content)){
@@ -25,12 +25,14 @@ if(empty($uid)||empty($content)){
     header('Refresh:0;url=quest.php');
     die();
 }
-    $con=new \mysqli($dbhost,$dbuser,$dbpawd,$dbname);
-    $time=time();
-    $serial=hash("sha512",$time);
-    $username=$_SESSION['username'];
-    $con->query("insert into quest (username,uid,time,content,status,serial) values('{$username}','{$uid}','{$time}','{$content}',1,'{$serial}')") or die("存入数据库失败".mysqli_error()); 
-    $con->close (); 
-    echo '<script>alert("审核中");</script>';
-    header('Refresh:0;url=quest.php');
+$content=str_replace('<','&lt;',$content);
+$content=str_replace('>','&gt;',$content);
+$con=new \mysqli($dbhost,$dbuser,$dbpawd,$dbname);
+$time=time();
+$serial=hash("sha512",$time);
+$username=$_SESSION['username'];
+$con->query("insert into quest (username,uid,time,content,status,serial) values('{$username}','{$uid}','{$time}','{$content}',1,'{$serial}')") or die("存入数据库失败".mysqli_error()); 
+$con->close (); 
+echo '<script>alert("审核中");</script>';
+header('Refresh:0;url=quest.php');
 ?>
