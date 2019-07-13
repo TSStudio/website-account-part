@@ -38,17 +38,17 @@ window.subm = function(res){
     console.log(res)
     if(res.ret === 0){
         yz=true;
+        ticke=res.ticket;
+        rands=res.randstr;
+        captbutton=document.getElementById('TencentCaptcha');
+        captdone=document.getElementById('CaptchaPass');
+        captbutton.style.display="none";
+        captdone.style.display="block";
     }
-    ticke=res.ticket;
-    rands=res.randstr;
-    captbutton=document.getElementById('TencentCaptcha');
-    captdone=document.getElementById('CaptchaPass');
-    captbutton.style.display="none";
-    captdone.style.display="block";
 }
 
 </script>
-  <script type="text/javascript">
+<script type="text/javascript">
     var form = document.getElementById('input-form');
     var go = document.getElementById('subbutt');
     go.onclick = function(){
@@ -74,31 +74,31 @@ window.subm = function(res){
             form.submit();
         }
     };
-    function check() { 
-      var username=document.getElementById("username").value; 
-      var password=document.getElementById("password").value; 
-      var assertpassword=document.getElementById("assertpassword").value;
-      var email=document.getElementById("email").value;
-      var regex=/^[/s]+$/; 
-      var szReg=/^[A-Za-zd]+([-_.][A-Za-zd]+)*@([A-Za-zd]+[-.])+[A-Za-zd]{2,5}$/;
-      if(szReg.test(email)||email.length==0){
+function check() { 
+    var username=document.getElementById("username").value; 
+    var password=document.getElementById("password").value; 
+    var assertpassword=document.getElementById("assertpassword").value;
+    var email=document.getElementById("email").value;
+    var regex=/^[/s]+$/; 
+    var szReg=/^[A-Za-zd]+([-_.][A-Za-zd]+)*@([A-Za-zd]+[-.])+[A-Za-zd]{2,5}$/;
+    if(szReg.test(email)||email.length==0){
         alert("<?=$emnr?>");
         return false;
-      }
-      if(regex.test(username)||username.length==0){ 
+    }
+    if(regex.test(username)||username.length==0){ 
         alert("<?=$lapw.$misw?>"); 
         return false; 
-      } 
-      if(regex.test(password)||password.length==0){ 
+    } 
+    if(regex.test(password)||password.length==0){ 
         alert("<?=$lapw.$misw?>"); 
         return false;     
-      } 
-      if(password!=assertpassword){ 
+    } 
+    if(password!=assertpassword){ 
         alert("<?=$ttpd?>"); 
         return false; 
-      } 
     } 
-  </script>
+} 
+</script>
 <div style="color:white;" class="copyright"><p>&nbsp;&nbsp;&nbsp;<?=$copyright?>&copy; 2014-<?php
 echo date('Y'); ?>.TS Studio <?=$alrr?> 吉ICP备17003700号</p></div>
 </body>
