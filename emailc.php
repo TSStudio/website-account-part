@@ -16,6 +16,7 @@ if(is_null($confirmCode)){
     die();
 }
 $con->query("update user set confirmCode=0,isEmailConfirmed=1,EmailLastSend=0 where confirmCode='{$confirmCode}';");
+$_SESSION['isEmailConfirmed']=true;
 echo "您的邮箱已验证";
 $con->close();
 ?>
