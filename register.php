@@ -25,10 +25,10 @@ if(strpos($username," or ")||strpos($username,"--")||strpos($username,"/*")||str
   <?php
     die();
     }
-    $pattern='/^[A-Za-zd]+([-_.][A-Za-zd]+)*@([A-Za-zd]+[-.])+[A-Za-zd]{2,5}$/';
+    $pattern='/^[A-Za-z0-9d]+([-_.][A-Za-z0-9d]+)*@([A-Za-z0-9d]+[-.])+[A-Za-zd]{2,5}$/';
   if(!preg_match($pattern,$email)){
     echo '<script>alert("邮件地址不合法");</script>';
-    echo 'window.location.href="loginform.php?code=103&URL='.$_GET["URL"]; 
+    echo '<script>window.location.href="loginform.php?code=103&URL='.$_GET["URL"].'</script>'; 
     die();
   }
 $password = hash("sha256", $_POST["password"]);
