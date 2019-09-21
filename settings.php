@@ -66,7 +66,7 @@ if ($lang=="zh_CN"){
                 <a href="reemail.php" class="button button-royal">更改/Update</a><br>
                 <h3><?=$stst?></h3>
                 <?=$status?>
-                <h4>TSS Website - ACCOUNT SYSTEM VERSION 1991</h4>
+                <h4>TSS Website - ACCOUNT SYSTEM VERSION 1991 HotFix 2</h4>
         </table>
         </div>
         <script>
