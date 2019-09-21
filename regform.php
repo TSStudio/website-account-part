@@ -80,7 +80,7 @@ function check() {
     var assertpassword=document.getElementById("assertpassword").value;
     var email=document.getElementById("email").value;
     var regex=/^[/s]+$/; 
-    var szReg=/^[A-Za-zd]+([-_.][A-Za-zd]+)*@([A-Za-zd]+[-.])+[A-Za-zd]{2,5}$/;
+    var szReg=/^[A-Za-z0-9d]+([-_.][A-Za-z0-9d]+)*@([A-Za-z0-9d]+[-.])+[A-Za-zd]{2,5}$/;
     if(szReg.test(email)||email.length==0){
         alert("<?=$emnr?>");
         return false;
