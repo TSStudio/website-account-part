@@ -22,7 +22,7 @@ if ($_SESSION['username'] == "") {
 <br>
     <div style="vertical-align: middle;" id="input-box">
         <form action="resetprocess.php?URL=<?php
-echo $_GET['URL']; ?>" method="post" name="form_register" onsubmit="return check()" style="margin:auto;" class="reg info-input">
+echo $_GET['URL']; ?>" method="post" name="form_register" onsubmit="return check()" style="margin:auto;" class="reset info-input">
             <center><font style="font-size:3em;"><?=$resp?></font></center><br>
             <table style="margin:auto;">
             <tr><td><i class="iconfont icon-key"></i><?=$oldp?></td><td><input type="password" name="oldpw" id="username" class="input-box"></td></tr>
