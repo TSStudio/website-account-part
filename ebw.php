@@ -81,20 +81,6 @@ include './include/'.$lang.'.php';
                 <div class="LINEBOX"><div class="PERCENT LVLB"><nobr><center><?php echo $lvl.' '.$dblvlp.'/'.$next;?></center></nobr></div></div>
     <br>
     <?php
-    echo $ebde;
-    global $ebch;
-    global $ebcd;
-    function replacement($num,$row){
-        $str=str_replace("1",$GLOBALS['ebch'],$row[(string)$num]);
-        $str=str_replace("0",$GLOBALS['ebcd'],$str);
-        return $str;
-    }
-    function showbuy($able2buy,$str){
-        if($able2buy){
-            return $str;
-        }
-        return;
-    }
     $rows=null;
     $row=null;
     $rows = $db->query('SELECT * FROM class where username=\''.strtolower($_SESSION['username']).'\'');//用sql语句获取数据
@@ -105,24 +91,15 @@ include './include/'.$lang.'.php';
         $rows = $db->query('SELECT * FROM class where username=\''.strtolower($_SESSION['username']).'\'');//用sql语句获取数据
     }
     while($row = $rows->fetch_assoc()){
-        echo '<table border="1">';
+        echo '你曾经拥有';
         $times=1;
         while($times<=$classes){
             if($row[(string)$times]==1){
-                $color="#5555CC";
-                $able2buy=false;
-            }else if($lvlb<$lvla[$level[$times]]){
-                $color="#CC5555";
-                $able2buy=false;
-            }else{
-                $color="#55CC55";
-                $able2buy=true;
+                echo $truename[$times].",";
             }
-            echo '<tr style="background-color:'.$color.';"><td>'.replacement($times,$row).'</td><td>'.$truename[$times].'</td><td>'.ucfirst($level[$times]).'</td><td>'.showbuy($able2buy,'<a href="#" onclick="buy('.$times.','.$cost[$times].');">'.$ebex.'('.$cost[$times].$ebpt.')</a></td></tr>');
-            $times++;
         }
-        echo '</table>';
     }
+
 ?>
 </div>
 <div style="color:white;" class="copyright"><p>&nbsp;&nbsp;&nbsp;<?=$copyright?>&copy; 2014-<?php
