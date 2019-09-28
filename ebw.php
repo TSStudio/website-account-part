@@ -97,6 +97,7 @@ include './include/'.$lang.'.php';
             if($row[(string)$times]==1){
                 echo $truename[$times].",";
             }
+            $times++;
         }
     }
 
