@@ -52,12 +52,12 @@ include './include/'.$lang.'.php';
     }
     $rows=null;
     $row=null;
-    $rows = $db->query('SELECT * FROM class where username=\''.strtolower($_SESSION['username']).'\'');//用sql语句获取数据
+    $rows = $db->query('SELECT * FROM class where username=\''.strtolower($_SESSION['username']).'\'');
     if (mysqli_num_rows($rows) < 1){
         $username=strtolower($_SESSION['username']);
         $db->query("insert into class (username) values('{$username}')") or die("存入数据库失败");
         $rows=null;
-        $rows = $db->query('SELECT * FROM class where username=\''.strtolower($_SESSION['username']).'\'');//用sql语句获取数据
+        $rows = $db->query('SELECT * FROM class where username=\''.strtolower($_SESSION['username']).'\'');
     }
     while($row = $rows->fetch_assoc()){
         $finaloutput="";
@@ -88,9 +88,8 @@ include './include/'.$lang.'.php';
         <div class="paybox"><!--Main-->
             <h1>Fortress II:Siege 已终止服务</h1>
             <div class="LINEBOX"><div class="PERCENT LVLB"><nobr><center><?php echo $lvl.' '.$dblvlp.'/'.$next;?></center></nobr></div></div>
-            <div class="deti">
-                <?=$finaloutput?>
-            </div>
+            <div>你的积分:<?=$dbpoint?></div>
+            <?=$finaloutput?>
         </div>
         <div style="color:white;" class="copyright"><p>&nbsp;&nbsp;&nbsp;<?=$copyright?>&copy; 2014-<?php echo date('Y'); ?>.TS Studio <?=$alrr?> 吉ICP备17003700号</p></div>
     </body>
