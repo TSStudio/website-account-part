@@ -34,7 +34,7 @@ if(strpos($_SERVER["HTTP_X_FORWARDED_FOR"],":")){
                     header('Refresh:0;url=loginform.php?URL=settings.php&code=105');
                     die();
                 }
-                $services=array("Pan-Download"=>"on","Pan-Upload"=>"off","ebw-class-show"=>"on","ebw-class-buy"=>"on","ebw-level-show"=>"on");
+                $services=array("ebw-class-show"=>"ff","ebw-class-buy"=>"off","ebw-level-show"=>"on","email-send"=>"on","password-reset"=>"on","video"=>"on","BLOGGER"=>"on");
                 $available="<h4>".$avsv."</h4><br>";
                 $navailabl="<h4>".$navs."</h4><br>";
                 foreach($services as $serv=>$stat){
