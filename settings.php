@@ -9,11 +9,7 @@ if ($lang=="zh_CN"){
     $enus='selected';
     $zhcn='';
 }
-if(strpos($_SERVER["HTTP_X_FORWARDED_FOR"],":")){
-    $ipv6="And it's great news that you are using IPV6";
-}else{
-    $ipv6="However, your device or your region doesn't support IPV6, or it's not used by default";
-}
+$ipv6=strpos($_SERVER["HTTP_X_FORWARDED_FOR"],":")?"IPV6":"IPV4";
  ?>
 <html>
     <head>
@@ -71,7 +67,7 @@ if(strpos($_SERVER["HTTP_X_FORWARDED_FOR"],":")){
                 <a href="reemail.php" class="button button-royal">更改/Update</a><br>
                 <h3><?=$stst?></h3>
                 <?=$status?>
-                <h4>TSS Website - ACCOUNT SYSTEM VERSION 1991 HotFix 2<br>IPV6 IS NOW AVAILABLE</h4>
+                <h4>TSS Website - ACCOUNT SYSTEM VERSION 19A1</h4>
                 <h4><?=$ipv6?></h4>
         </table>
         </div>
