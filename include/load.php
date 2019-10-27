@@ -95,4 +95,5 @@ if($data["mem"]>70||$data["load"]["1min"]>100||$data["cpu"]>100){
     $load="空/Idle";
     $clr="idle";
 }
+$loaddetail="CPU使用:".$data["cpu"]."% 内存使用:".$data["mem"]."% 1min负载:".$data["load"]["1min"]." 生成时间"+date("Y-m-d H:i:s",$data["gentime"]);
 ?>

@@ -71,7 +71,7 @@ $ipv6=strpos($_SERVER["HTTP_X_FORWARDED_FOR"],":")?"IPV6":"IPV4";
                 <h3>服务器负载/Server Load</h3>
                 <!--构造框架-->
                 TSS负载指数：
-                <div class="loadp <?=$clr?>">
+                <div class="loadp <?=$clr?>" title="<?=$loaddetail?>">
                 <center><?=$load?></center>
                 </div>
                 <h4>网络/Network</h4>
