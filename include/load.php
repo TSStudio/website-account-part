@@ -61,7 +61,7 @@ class get_system_hwinfo{
 }
 $shm_key = 0x00000000;//现代操作系统的内存地址都是假的，随便写就行
 //首先进行检查，是否为开机后首次运行此程序
-$shm_id = @shmop_open($shm_key, 'c', 0777, 16384);
+$shm_id = shmop_open($shm_key, 'c', 0777, 16384);
 if(shmop_size($shm_id)<5){
     $svrinfo=new get_system_hwinfo();
     $data=$svrinfo->get_all_info();

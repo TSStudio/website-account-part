@@ -25,7 +25,7 @@ $ipv6=strpos($_SERVER["HTTP_X_FORWARDED_FOR"],":")?"IPV6":"IPV4";
         </div>
         <div id="Main" style="display:none;">
                 <?php
-                error_reporting(E_ALL || ~E_NOTICE);
+                //error_reporting(E_ALL || ~E_NOTICE);
                 if ($_SESSION['username']==""){
                     echo "You are not logging in,jumping to the log-in page.";
                     header('Refresh:0;url=loginform.php?URL=settings.php&code=105');
