@@ -81,22 +81,21 @@ if(time()-$data["gentime"]>20){//超时时间：20秒
 }
 proc:
 //处理负载问题
-if($data["mem"]>70||$data["load"]["1min"]>100||$data["cpu"]>100){
+if($data["mem"]>70||$data["load"]["1min"]>1||$data["cpu"]>100){
     //内存70 负载1 cpu 100以上属于高负载
     $load="高/High";
     $clr="r";
-}else if($data["mem"]>60||$data["load"]["1min"]>60||$data["cpu"]>50){
+}else if($data["mem"]>60||$data["load"]["1min"]>0.6||$data["cpu"]>50){
     //内存60 负载0.6 cpu 50以上属于中负载
     $load="中/Mid";
     $clr="o";
-}else if($data["mem"]>20||$data["load"]["1min"]>10||$data["cpu"]>10){
+}else if($data["mem"]>20||$data["load"]["1min"]>0.1||$data["cpu"]>10){
     //内存20 负载0.1 cpu 10以上属于低负载
     $load="低/Low";
     $clr="g";
 }else{
-    //内存60 负载0.6 cpu 50以上属于空载
     $load="空/Idle";
     $clr="idle";
 }
-$loaddetail="CPU使用:".$data["cpu"]."% 内存使用:".$data["mem"]."% 1min负载:".($data["load"]["1min"]/100)." 生成时间".date("Y-m-d H:i:s",$data["gentime"]).$extra;
+$loaddetail="CPU使用:".$data["cpu"]."% 内存使用:".$data["mem"]."% 1min负载:".$data["load"]["1min"]." 生成时间".date("Y-m-d H:i:s",$data["gentime"]).$extra;
 ?>
