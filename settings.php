@@ -75,7 +75,7 @@ $ipv6=strpos($_SERVER["HTTP_X_FORWARDED_FOR"],":")?"IPV6":"IPV4";
                 <center><?=$load?></center>
                 </div>
                 <h4>网络/Network</h4>
-                <div><?=$ipv6?></div>
+                <div><?=$ipv6?>(<?=$_SERVER["HTTP_X_FORWARDED_FOR"]?>)</div>
                 <h5>TSS Website - ACCOUNT SYSTEM VERSION 19A1</h5>
         </table>
         </div>
