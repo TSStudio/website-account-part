@@ -59,6 +59,7 @@ $ls02="Reset Password";
 $ls03="Fortress II : Siege Point exchange";
 $ls04="Authorization application";
 $ls05="Settings";
+$ls06="Survival Server";
 //ebw
 $ebex="Exchange";
 $ebpt="Point(s)";

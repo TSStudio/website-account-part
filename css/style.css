@@ -98,3 +98,19 @@ input {
 .deti{
     text-align:right;
 }
+.loadp{
+    height: 30px;
+    width: 100px;
+}
+.r{
+    background-color: #EE3333;
+}
+.o{
+    background-color: #EECC33;
+}
+.g{
+    background-color: #CCEE33;
+}
+.idle{
+    background-color: #33EE33;
+}

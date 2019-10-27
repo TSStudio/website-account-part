@@ -24,6 +24,7 @@ include './include/'.$lang.'.php';
         <tr><td><a href="ebw.php" style="font-style:normal;text-decoration:none;width:100%;" class="button button-royal"><?=$ls03?></a></td></tr>
         <tr><td><a href="quest.php" style="font-style:normal;text-decoration:none;width:100%;" class="button button-highlight"><?=$ls04?></a></td></tr>
         <tr><td><a href="settings.php" style="font-style:normal;text-decoration:none;width:100%;" class="button button-tiny"><?=$ls05?></a></td></tr>
+        <!--<tr><td><a href="survival" style="font-style:normal;text-decoration:none;width:100%;" class="button button-action"><?=$ls06?></a></td></tr>-->
         </table>
         </div>
         </div>

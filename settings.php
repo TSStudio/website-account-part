@@ -2,6 +2,7 @@
 include './include/server-info.php';
 $lang=$_SESSION['language'];
 include './include/'.$lang.'.php';
+include './include/load.php';
 if ($lang=="zh_CN"){
     $zhcn='selected';
     $enus='';
@@ -23,7 +24,7 @@ $ipv6=strpos($_SERVER["HTTP_X_FORWARDED_FOR"],":")?"IPV6":"IPV4";
             <i class="fa fa-spinner fa-pulse fa-5x" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);"></i>
         </div>
         <div id="Main" style="display:none;">
-<?php
+                <?php
                 error_reporting(E_ALL || ~E_NOTICE);
                 if ($_SESSION['username']==""){
                     echo "You are not logging in,jumping to the log-in page.";
@@ -65,10 +66,17 @@ $ipv6=strpos($_SERVER["HTTP_X_FORWARDED_FOR"],":")?"IPV6":"IPV4";
 
                 ?>
                 <a href="reemail.php" class="button button-royal">更改/Update</a><br>
-                <h3><?=$stst?></h3>
+                <h3>状态/Status</h3>
                 <?=$status?>
-                <h4>TSS Website - ACCOUNT SYSTEM VERSION 19A1</h4>
-                <h4><?=$ipv6?></h4>
+                <h3>服务器负载/Server Load</h3>
+                <!--构造框架-->
+                TSS负载指数：
+                <div class="loadp <?=clr?>">
+                <center><?=$load?></center>
+                </div>
+                <h4>网络/Network</h4>
+                <div><?=$ipv6?></div>
+                <h5>TSS Website - ACCOUNT SYSTEM VERSION 19A1</h5>
         </table>
         </div>
         <script>
