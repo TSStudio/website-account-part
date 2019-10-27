@@ -59,26 +59,28 @@ class get_system_hwinfo{
         return $res;
     }
 }
-$shm_key = 0x00000000;//现代操作系统的内存地址都是假的，随便写就行
+$shm_key = 0x4337b101;//现代操作系统的内存地址都是假的，随便写就行
 //首先进行检查，是否为开机后首次运行此程序
-$shm_id = shmop_open($shm_key, 'w', 0777, 16383);
+$shm_id = @shmop_open($shm_key, 'a', 0644, 16383);
 if($shm_id === FALSE){
-    $shm_id = shmop_open($shm_key, 'c', 0777, 16383);
+    $shm_id = @shmop_open($shm_key, 'c', 0644, 16383);
     $svrinfo=new get_system_hwinfo();
     $data=$svrinfo->get_all_info();
     shmop_write($shm_id, json_encode($data), 0);
+    shmop_close($shm_id);
     goto proc;
-    $extra="这是开机后第一次执行";
     //首次运行，不需要考虑超时问题
 }
-$data = shmop_read($shm_id, 0, 16383);
-$data = json_decode($data);
+$data = json_decode(preg_replace('/[\x00-\x1F\x80-\x9F]/u', '', trim(shmop_read($shm_id, 0, 16383))), true);
 if(time()-$data["gentime"]>20){//超时时间：20秒
+    shmop_delete($shm_id);
+    shmop_close($shm_id);
+    $shm_id = @shmop_open($shm_key, 'c', 0644, 16383);
     $l=$data["gentime"];
     $svrinfo=new get_system_hwinfo();
     $data=$svrinfo->get_all_info();
-    shmop_write($shm_id, json_encode($data), 0);
-    $extra="这是上次超时后的执行,上次执行：".date("Y-m-d H:i:s",$l);
+    shmop_write($shm_id,json_encode($data), 0);
+    shmop_close($shm_id);
 }
 proc:
 //处理负载问题
@@ -98,5 +100,5 @@ if($data["mem"]>70||$data["load"]["1min"]>1||$data["cpu"]>100){
     $load="空/Idle";
     $clr="idle";
 }
-$loaddetail="CPU使用:".$data["cpu"]."% 内存使用:".$data["mem"]."% 1min负载:".$data["load"]["1min"]." 生成时间".date("Y-m-d H:i:s",$data["gentime"]).$extra;
+$loaddetail="CPU使用:".$data["cpu"]."% 内存使用:".$data["mem"]."% 1min负载:".$data["load"]["1min"]." 生成时间".date("Y-m-d H:i:s",$data["gentime"]);
 ?>
