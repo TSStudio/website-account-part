@@ -61,8 +61,9 @@ class get_system_hwinfo{
 }
 $shm_key = 0x00000000;//现代操作系统的内存地址都是假的，随便写就行
 //首先进行检查，是否为开机后首次运行此程序
-$shm_id = shmop_open($shm_key, 'c', 0777, 16384);
-if(shmop_size($shm_id)<5){
+$shm_id = shmop_open($shm_key, 'w', 0777, 16383);
+if($shm_id === FALSE){
+    $shm_id = shmop_open($shm_key, 'c', 0777, 16383);
     $svrinfo=new get_system_hwinfo();
     $data=$svrinfo->get_all_info();
     shmop_write($shm_id, json_encode($data), 0);
@@ -70,7 +71,7 @@ if(shmop_size($shm_id)<5){
     $extra="这是开机后第一次执行";
     //首次运行，不需要考虑超时问题
 }
-$data = shmop_read($shm_id, 0, shmop_size($shm_id));
+$data = shmop_read($shm_id, 0, 16383);
 $data = json_decode($data);
 if(time()-$data["gentime"]>20){//超时时间：20秒
     $l=$data["gentime"];
