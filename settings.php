@@ -1,8 +1,13 @@
 <?php session_start();
+if ($_SESSION['username']==""){
+    echo "You are not logging in,jumping to the log-in page.";
+    header('Refresh:0;url=loginform.php?URL=settings.php&code=105');
+    die();
+}
+include './include/load.php';
 include './include/server-info.php';
 $lang=$_SESSION['language'];
 include './include/'.$lang.'.php';
-include './include/load.php';
 if ($lang=="zh_CN"){
     $zhcn='selected';
     $enus='';
@@ -25,12 +30,6 @@ $ipv6=strpos($_SERVER["HTTP_X_FORWARDED_FOR"],":")?"IPV6":"IPV4";
         </div>
         <div id="Main" style="display:none;">
                 <?php
-                //error_reporting(E_ALL || ~E_NOTICE);
-                if ($_SESSION['username']==""){
-                    echo "You are not logging in,jumping to the log-in page.";
-                    header('Refresh:0;url=loginform.php?URL=settings.php&code=105');
-                    die();
-                }
                 $services=array("ebw-class-show"=>"ff","ebw-class-buy"=>"off","ebw-level-show"=>"on","email-send"=>"on","password-reset"=>"on","video"=>"on","BLOGGER"=>"on");
                 $available="<h4>".$avsv."</h4><br>";
                 $navailabl="<h4>".$navs."</h4><br>";
