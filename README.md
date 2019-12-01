@@ -1,8 +1,8 @@
 ## TSS WEBSITE OPENSOURCE PROJECT
 ### ACCOUNT PART
 ### 使用指南
-PHP 5.6+,mysql数据库
-
+PHP 5.6+,mysql数据库  
+你需要注意的是，这个库的，给第三方使用的东西，比如sql都很长时间没有更新了，直接套用代码绝壁报错。所以并不推荐第三方使用。如果你一定要用的话，自己改一下或者找我。
 #### 克隆本库
 
 `git-clone https://github.com/TSStudio/website-account-part.git`
@@ -18,7 +18,6 @@ PHP 5.6+,mysql数据库
 编辑此文件
 ```php
 <?php    
-    namespace maintask;//******** RCON SETTIONGS ********
     $rpawd=;//rcon密码
     $rhost=;//rcon地址
     $rport=;//rcon端口
