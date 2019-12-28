@@ -1,4 +1,4 @@
-@import url('//at.alicdn.com/t/font_571229_gqdwyed9poq.css');
+@import url('https://at.alicdn.com/t/font_571229_zzc173v05bq.css');
 @import url('./buttons.css');
 a:active,a:focus {text-decoration: none;}
 .link:hover{
@@ -9,7 +9,10 @@ body {
     background-size:100%;
     background-repeat:no-repeat;
     padding-bottom:50px;
-    background-color:#111111;
+    background-color:#ffffff;
+    background-image: linear-gradient(135deg, rgba(63, 76, 133, 0.7) 0%, rgba(71, 95, 95, 0.5) 32%, rgba(28, 121, 105, 0.6) 74%, rgba(34, 63, 141, 0.7) 100%);
+    margin: 0;
+    padding: 0;
 }
 .copyright{ position:fixed; left:0px; bottom:0px; width:100%; height:50px; background-color:#333; z-index:9999;}
 * {
@@ -113,4 +116,22 @@ input {
 }
 .idle{
     background-color: #33EE33;
+}
+.round_button {
+    display:inline-block;
+    border: 1px solid;
+    font: bold 12px/25px Arial, sans-serif;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1em;
+    line-height: 50px;
+    width: 100px;
+    height: 50px;
+    margin: 10px;
+    border-radius: 15px;
+    font-weight: lighter;
+    transition: all 0.15s ease;
+}
+.round_button:hover {
+    background-color:rgba(0,0,0,.1);
 }

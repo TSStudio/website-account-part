@@ -6,30 +6,26 @@ if ($_SESSION['username']==""){
 die();
 }
 include './include/server-info.php';
-$lang=$_SESSION['language'];
-include './include/'.$lang.'.php';
- ?>
+?>
+<!DOCTYPE html>
 <html>
     <head>
         <link href="css/style.css" rel="stylesheet">
         <link href="css/all.css" rel="stylesheet">
-        <title><?=$htit?></title>
+        <title>TS Studio PANEL</title>
     </head>
-    <body id="body" class="lazy">
-        <div id="Main">
-        <i class="iconfont icon-username"></i><?php echo $_SESSION['username']; ?>
-        <table><tr><td><a href="logout.php?URL=index.php" style="font-style:normal;text-decoration:none;width:100%;" class="button button-caution"><i class="iconfont icon-login"></i><?=$ladc?></a></td></tr>
-        <tr><td><a href="BLOGGER" style="font-style:normal;text-decoration:none;width:100%;" class="button button-primary"><i class="iconfont icon-disk"></i><?=$ls01?></a></td></tr>
-        <tr><td><a href="reset.php" style="font-style:normal;text-decoration:none;width:100%;" class="button button-action"><i class="iconfont icon-refresh"></i><?=$ls02?></a></td></tr>
-        <tr><td><a href="ebw.php" style="font-style:normal;text-decoration:none;width:100%;" class="button button-royal"><?=$ls03?></a></td></tr>
-        <tr><td><a href="quest.php" style="font-style:normal;text-decoration:none;width:100%;" class="button button-highlight"><?=$ls04?></a></td></tr>
-        <tr><td><a href="settings.php" style="font-style:normal;text-decoration:none;width:100%;" class="button button-tiny"><?=$ls05?></a></td></tr>
-        <!--<tr><td><a href="survival" style="font-style:normal;text-decoration:none;width:100%;" class="button button-action"><?=$ls06?></a></td></tr>-->
-        </table>
+    <body id="body">
+        <div id="usrbar"><i class="iconfont icon-username"></i><?php echo $_SESSION['username'];?></div>
+        <div id="timebar"><h1 style="font-size:3em;" id="time">00:00</h1></div>
+        <div id="apps">
+            <a href="settings.php" class="round_button"><i class="iconfont icon-mzicon-setting"></i>设置</a>
+            <a href="Video/list" class="round_button"><i class="iconfont icon-video"></i>视频</a>
+            <a href="BLOGGER" class="round_button"><i class="iconfont icon-blog"></i>博客</a>
+            <a href="quest.php" class="round_button"><i class="iconfont icon-keys"></i>授权申请</a>
+            <a href="reset.php" class="round_button"><i class="iconfont icon-zhongzhi"></i>重置密码</a>
         </div>
-        </div>
-        <div style="color:white;" class="copyright"><p>&nbsp;&nbsp;&nbsp;<?=$copyright?>&copy; 2014-<?php
-echo date('Y'); ?>.TS Studio <?=$alrr?> 吉ICP备17003700号</p></div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <div style="color:white;" class="copyright"><p>&nbsp;版权所有&copy; 2014-2020.TS Studio 保留所有权利 吉ICP备17003700号</p></div>
     </body>
-    <script defer src="./css/bgi.js"></script>
+    <script src="js/time.js"></script>
 </html>
