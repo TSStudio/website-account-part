@@ -12,6 +12,7 @@ include './include/server-info.php';
     <head>
         <link href="css/style.css" rel="stylesheet">
         <link href="css/all.css" rel="stylesheet">
+        <meta charset="utf-8">
         <title>TS Studio PANEL</title>
     </head>
     <body id="body">
