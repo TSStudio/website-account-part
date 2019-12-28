@@ -3,7 +3,7 @@ error_reporting(E_ALL || ~E_NOTICE);
 if ($_SESSION['username']==""){
     echo "You are not logging in,jumping to the log-in page.";
     header('Refresh:0;url=loginform.php?URL=index.php&code=105');
-die();
+    die();
 }
 include './include/server-info.php';
 ?>
