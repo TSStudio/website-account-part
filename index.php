@@ -25,7 +25,6 @@ include './include/server-info.php';
             <a href="quest.php" class="round_button"><i class="iconfont icon-keys"></i>授权申请</a>
             <a href="reset.php" class="round_button"><i class="iconfont icon-zhongzhi"></i>重置密码</a>
         </div>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         <div style="color:white;" class="copyright"><p>&nbsp;版权所有&copy; 2014-2020.TS Studio 保留所有权利 吉ICP备17003700号</p></div>
     </body>
     <script src="js/time.js"></script>
