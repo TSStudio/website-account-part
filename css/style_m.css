@@ -1,4 +1,4 @@
-﻿@import url('https://at.alicdn.com/t/font_571229_zzc173v05bq.css');
+@import url('https://at.alicdn.com/t/font_571229_zzc173v05bq.css');
 @import url('./buttons.css');
 a:active,a:focus {text-decoration: none;}
 .link:hover{
@@ -6,6 +6,7 @@ a:active,a:focus {text-decoration: none;}
     transform: translate3d(0,-60px,0);
 }
 body {
+    font-size:3em;
     background-size:100%;
     background-repeat:no-repeat;
     padding-bottom:50px;
@@ -119,16 +120,16 @@ input {
 }
 .round_button {
     display:inline-block;
-    border: 1px solid;
+    border: 3px solid;
     font: bold 12px/25px Arial, sans-serif;
     text-decoration: none;
     text-align: center;
     font-size: 1em;
-    line-height: 50px;
-    width: 200px;
-    height: 50px;
-    margin: 10px;
-    border-radius: 15px;
+    line-height: 150px;
+    width: 600px;
+    height: 150px;
+    margin: 30px;
+    border-radius: 45px;
     font-weight: lighter;
     transition: all 0.15s ease;
 }
