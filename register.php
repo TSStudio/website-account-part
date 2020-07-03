@@ -6,7 +6,7 @@ error_reporting(E_ALL || ~ E_NOTICE);
 ?>
 <html>
 <body>
-  <?php
+<?php
 $iptru=$_SERVER["HTTP_X_FORWARDED_FOR"];
 $url='https://ssl.captcha.qq.com/ticket/verify?aid='.$captappid.'&AppSecretKey='.$captappsecret.'&Ticket='.$_POST['ticket'].'&Randstr='.$_POST['randstr'].'&UserIP='.$iptru;
 $html = file_get_contents($url);
@@ -16,22 +16,22 @@ if($json['response']!=1){
 }
 $username = $_POST["username"];
 $email=$_POST["email"];
-if(strpos($username," or ")||strpos($username,"--")||strpos($username,"/*")||strpos($username,"*/")){
-    ?> 
-  <script type="text/javascript"> 
-    alert("用户名含有非法字符"); 
-    window.location.href="loginform.php?code=103&URL=<?php echo $_GET["URL"];?>"; 
-  </script> 
-  <?php
+if(strpos($username," ")||strpos($username,"--")||strpos($username,"/*")||strpos($username,"*/")){
+    ?>
+    <script type="text/javascript">
+      alert("用户名含有非法字符");
+      window.location.href="loginform.php?code=103&URL=<?php echo $_GET["URL"];?>";
+    </script>
+    <?php
     die();
-    }
-    $pattern='/^[A-Za-z0-9d]+([-_.][A-Za-z0-9d]+)*@([A-Za-z0-9d]+[-.])+[A-Za-zd]{2,5}$/';
-  if(!preg_match($pattern,$email)){
+}
+$pattern='/^[A-Za-z0-9d]+([-_.][A-Za-z0-9d]+)*@([A-Za-z0-9d]+[-.])+[A-Za-zd]{2,5}$/';
+if(!preg_match($pattern,$email)){
     echo '<script>alert("邮件地址不合法");</script>';
-    echo '<script>window.location.href="loginform.php?code=103&URL='.$_GET["URL"].'</script>'; 
+    echo '<script>window.location.href="loginform.php?code=103&URL='.$_GET["URL"].'</script>';
     die();
-  }
-$password = hash("sha256", $_POST["password"]);
+}
+$password=hash("sha256", $_POST["password"]);
 function random($length) {
     srand(date("s"));
     $possible_charactors = "0123456789abcdef";
@@ -42,13 +42,13 @@ function random($length) {
     return ($string);
 }
 function randoms($length) {
-  srand(date("s"));
-  $possible_charactors = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  $string = "";
-  while (strlen($string) < $length) {
-      $string.= substr($possible_charactors, (rand() % (strlen($possible_charactors))) , 1);
-  }
-  return ($string);
+    srand(date("s"));
+    $possible_charactors = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    $string = "";
+    while (strlen($string) < $length) {
+        $string.= substr($possible_charactors, (rand() % (strlen($possible_charactors))) , 1);
+    }
+    return ($string);
 }
 $randomstr = random(15);
 $password = hash("sha256", $password . $randomstr);
@@ -64,13 +64,13 @@ while ($row = mysqli_fetch_array($result)) {
     $dbusername = $row["realname"];
 }
 if (!is_null($dbusername)) {
-?>
-  <script type="text/javascript"> 
-    alert("用户已存在"); 
-    window.location.href="regform.php?URL=<?php
-    echo $_GET['URL']; ?>&code=107"; 
-  </script>  
-  <?php
+    ?>
+    <script type="text/javascript"> 
+        alert("用户已存在");
+        window.location.href="regform.php?URL=<?php
+        echo $_GET['URL']; ?>&code=107";
+    </script>  
+    <?php
 }
 list($msec, $sec) = explode(' ', microtime());
 $msectime = (float)sprintf('%.0f', (floatval($msec) + floatval($sec)) * 1000);
@@ -116,9 +116,9 @@ catch (ServerException  $e) {
 }
 //-------------------------------------------
 ?> 
-  <script type="text/javascript"> 
+<script type="text/javascript"> 
     alert("注册成功，验证邮件已发送"); 
     window.location.href="index.php"; 
-  </script> 
+</script> 
 </body>
 </html>
