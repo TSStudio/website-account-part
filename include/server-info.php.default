@@ -1,15 +1,24 @@
 <?php
-    namespace maintask;
+    if(!$includer){
+        die();
+    }
+    //请**绝对**不要泄露此文件
     //******** RCON SETTIONGS ********
-    $rpawd=;//password
-    $rhost=;//host
-    $rport=;//port
+    $rpawd="";//password
+    $rhost="";//host
+    $rport="";//port
     //******** MYSQL SETTIONGS ********
-    $dbhost=;
-    $dbport=3306;//DEFAULT 3306
-    $dbuser=;
-    $dbpawd=;
-    $dbname=;
+    $dbhost="";
+    $dbport="3306";//DEFAULT 3306
+    $dbuser="";
+    $dbpawd="";
+    $dbname="";
     
     $dbhost=$dbhost.':'.$dbport;
+    
+    $captappid="";
+    $captappsecret="";
+
+    $aliaccesskey='';
+    $aliaccesssecret='';
 ?>

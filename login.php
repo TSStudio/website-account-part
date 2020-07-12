@@ -6,13 +6,15 @@ session_start();
     ini_set("display_errors", "Off");
     if($_SERVER['REQUEST_METHOD']!='POST'){
         echo "非法请求";
+        header('Refresh:0;url=loginform.php?URL=index.php&code=105');
         die();
     }
     if(!isset($_POST['username'])||!isset($_POST['password'])){
         echo "非法请求";
+        header('Refresh:0;url=loginform.php?URL=index.php&code=105');
         die();
     }
-    $username=$_POST['username'];//获取html中的用户名（通过post请求） 
+    $username=$_POST['username'];
     if(strpos($username," ")||strpos($username,"--")||strpos($username,"/*")||strpos($username,"*/")){
         ?>
         <script type="text/javascript">
@@ -22,16 +24,18 @@ session_start();
         <?php  
         die();
     }
-    $password=hash("sha256", $_POST["password"]);//获取html中的密码（通过post请求） 
+    $password=hash("sha256", $_POST["password"]);
+    $includer=true;
     include './include/server-info.php';
-    $con=new \mysqli($dbhost,$dbuser,$dbpawd,$dbname);//连接mysql 数据库
+    $con=new \mysqli($dbhost,$dbuser,$dbpawd,$dbname);
     if (!$con) { 
+        header('Refresh:0;url=loginform.php?URL=index.php&code=105');
         die('数据库连接失败'.mysqli_error()); 
     }
     $dbusername=null; 
     $dbpassword=null; 
-    $result=$con->query("select realname,password,lang,email,isEmailConfirmed from user where realname ='{$username}';");//查出对应用户名的信息，isdelete表示在数据库已被删除的内容 
-    while ($row=mysqli_fetch_array($result)) {//while循环将$result中的结果找出来 
+    $result=$con->query("select realname,password,lang,email,isEmailConfirmed from user where realname ='{$username}';");
+    while ($row=mysqli_fetch_array($result)) {
         $dbusername=$row["realname"]; 
         $dbpassword=$row["password"]; 
         $dblanguage=$row["lang"];
@@ -86,6 +90,6 @@ session_start();
             } 
         } 
     } 
-    mysqli_close($con);//关闭数据库连接，如不关闭，下次连接时会出错 
+    mysqli_close($con);//关闭数据库连接，如不关闭，也没事，反正就，书上这么写的就这么做吧。
 ?> 
 </html>

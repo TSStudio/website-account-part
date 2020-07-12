@@ -6,6 +6,7 @@ if ($_SESSION['username']==""){
     header('Refresh:0;url=loginform.php?URL=settings.php&code=105');
     die();
 }
+$includer=true;
 include './include/server-info.php';
 $lang=$_SESSION['language'];
 $con=new \mysqli($dbhost,$dbuser,$dbpawd,$dbname);

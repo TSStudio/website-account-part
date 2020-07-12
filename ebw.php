@@ -8,6 +8,7 @@ if ($_SESSION['username']==""){
 die();
 }
 include './include/classes.php';
+$includer=true;
 include './include/server-info.php';
 $lang=$_SESSION['language'];
 include './include/'.$lang.'.php';

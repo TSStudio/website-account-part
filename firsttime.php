@@ -6,6 +6,7 @@ if ($_SESSION['username']==""){
     header('Refresh:0;url=loginform.php?URL=ebw.php&code=105');
     die();
 }
+$includer=true;
 include './include/server-info.php';
 ?>
 <html>

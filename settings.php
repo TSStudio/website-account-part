@@ -5,7 +5,6 @@ if ($_SESSION['username']==""){
     die();
 }
 include './include/load.php';
-include './include/server-info.php';
 $lang=$_SESSION['language'];
 include './include/'.$lang.'.php';
 if ($lang=="zh_CN"){

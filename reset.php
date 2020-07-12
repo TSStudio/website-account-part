@@ -1,7 +1,6 @@
 <?php
 session_start();
 header("Content-type: text/html; charset=utf-8");
-include './include/server-info.php';
 $lang=$_SESSION['language'];
 include './include/'.$lang.'.php';
  ?>

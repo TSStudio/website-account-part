@@ -1,6 +1,7 @@
 <?php
 session_start();
 header("Content-type: text/html; charset=utf-8");
+$includer=true;
 include './include/server-info.php';
 error_reporting(E_ALL || ~E_NOTICE);
 if ($_SESSION['username']==""){

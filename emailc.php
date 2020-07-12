@@ -1,5 +1,6 @@
 <?php
 $secret=$_GET["secret"];
+$includer=true;
 include './include/server-info.php';
 header("Content-type: text/html; charset=utf-8");
 $con = mysqli_connect($dbhost, $dbuser, $dbpawd, $dbname);

@@ -1,4 +1,5 @@
 <?php
+$includer=true;
 include './include/server-info.php';
 $bgurl="./css/cert.png";
 $info=getimagesize($bgurl);
