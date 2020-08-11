@@ -22,6 +22,7 @@ include './include/server-info.php';
             <a href="Video/list" class="round_button"><i class="iconfont icon-video" style="font-size:1em;"></i>视频</a>
             <a href="BLOGGER" class="round_button"><i class="iconfont icon-blog" style="font-size:1em;"></i>博客</a>
             <a href="quest.php" class="round_button"><i class="iconfont icon-keys" style="font-size:1em;"></i>授权申请</a>
+            <a href="ebw.php" class="round_button">职业管理</a>
             <a href="reset.php" class="round_button"><i class="iconfont icon-zhongzhi" style="font-size:1em;"></i>重置密码</a>
         </div>
         <div style="color:white;" class="copyright"><p>&nbsp;版权所有&copy; 2014-2020.TS Studio 保留所有权利 吉ICP备17003700号</p></div>
