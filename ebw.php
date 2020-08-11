@@ -74,12 +74,13 @@ include './include/'.$lang.'.php';
                     }
                 </style>
         </head>
-            <body id="body">
-            <div id="Main">
-                <i class="iconfont icon-username"></i><?php echo $_SESSION['username']; ?><br>
-                <a href="index.php" class="button button-primary"><i class="iconfont icon-i-back"></i><?=$back?></a><br>
-                <?=$ebcp?>:(<a href="#" onclick="showhelp();">?</a>)：<?php echo $dbpoint;?>
-                <div class="LINEBOX"><div class="PERCENT LVLB"><nobr><center><?php echo $lvl.' '.$dblvlp.'/'.$next;?></center></nobr></div></div>
+        <body id="body">
+        <div id="Main" style="
+    margin-bottom:50px;">
+            <i class="iconfont icon-username"></i><?php echo $_SESSION['username']; ?><br>
+            <a href="index.php" class="button button-primary"><i class="iconfont icon-i-back"></i><?=$back?></a><br>
+            <?=$ebcp?>:(<a href="#" onclick="showhelp();">?</a>)：<?php echo $dbpoint;?>
+            <div class="LINEBOX"><div class="PERCENT LVLB"><nobr><center><?php echo $lvl.' '.$dblvlp.'/'.$next;?></center></nobr></div></div>
     <br>
     <?php
     echo $ebde;
