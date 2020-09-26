@@ -1,4 +1,7 @@
-<?php session_start();
+<?php
+//When I wrote this code, only God and I understood what I was doing
+//Now, God only knows
+session_start();
 error_reporting(E_ALL || ~E_NOTICE);
 include './include/server-info.php';
 include './include/classes.php';
@@ -8,7 +11,7 @@ if(!isset($_GET['class'])){
     header('Refresh:0;url=ebw.php');
     die();
 }
-if ($_SESSION['username']==""){
+if($_SESSION['username']==""){
     echo "You are not logging in,jumping to the log-in page.";
     header('Refresh:0;url=loginform.php?URL=login.php&code=105');
     die();

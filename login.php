@@ -27,7 +27,7 @@ session_start();
     $password=hash("sha256", $_POST["password"]);
     $includer=true;
     include './include/server-info.php';
-    $con=new \mysqli($dbhost,$dbuser,$dbpawd,$dbname);
+    $con=new \mysqli($dbhost,$dbuser,$dbpawd,$dbname);//挂载数据库
     if (!$con) { 
         header('Refresh:0;url=loginform.php?URL=index.php&code=105');
         die('数据库连接失败'.mysqli_error()); 
