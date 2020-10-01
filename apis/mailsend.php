@@ -9,7 +9,7 @@ if ($_SESSION['username']==""){
 if(time()-$_SESSION["lastsend"]<=60){
     die("请勿重复发送");
 }
-$pattern='/^[A-Za-z0-9d]+([-_.][A-Za-z0-9d]+)*@([A-Za-z0-9d]+[-.])+[A-Za-zd]{2,5}$/';
+$pattern='/^[A-Za-z0-9d]+([-_.][A-Za-z0-9d]+)*@([A-Za-z0-9d]+[-.])*+[A-Za-zd]{2,5}$/';
   if(!preg_match($pattern,$_session['email'])){
     echo "邮件地址不合法";
     die();
