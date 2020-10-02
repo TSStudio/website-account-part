@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL || ~E_NOTICE);
 class genCode{
     private function getYr(){
         //"2019"=>"0","2020"=>"1","2021"=>"2"
