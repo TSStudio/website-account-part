@@ -31,7 +31,7 @@ $sendbutton='<a href="#" onclick="chkandsend();">发送邮件</a>';
             }
         }
         setInterval("timepass();",1000);
-        var szReg=/^[A-Za-zd]+([-_.][A-Za-zd]+)*@([A-Za-zd]+[-.])+[A-Za-zd]{2,5}$/;
+        var szReg=/^[A-Za-z0-9d]+([-_.][A-Za-z0-9d]+)*@([A-Za-z0-9d]+[-.])+[A-Za-zd]{2,5}$/;
         function timer(){
             timeleft=60;
         }
